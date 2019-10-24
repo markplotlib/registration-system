@@ -42,7 +42,7 @@ public class Faculty {
 
     @Override
     public String toString() {
-        return "Faculty: Name=" + firstName + " " + lastName;
+        return "Faculty: Name=" + firstName + " " + lastName + "\r";
     }
 
     private String firstName;

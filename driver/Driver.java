@@ -38,6 +38,7 @@ public class Driver {
     private static void funFac(RegistrationSystem system) throws DuplicatePersonException {
         // system.addFaculty("Roshanak", "Roshandel", FacultyType.ASSOCPROF, Building.ENGR, 508, "roshanak@seattleu.edu");
         system.addFaculty("Roshanak", "Roshandel");
+        system.addFaculty("James", "Obare");
     }
 
     private static void populateSystem(RegistrationSystem system) {
