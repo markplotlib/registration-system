@@ -1,5 +1,7 @@
 package person;
 
+import enums.*;
+
 /**
  * <p>The <strong>Student</strong> class holds information about a student.</p>
  * <ul>
@@ -9,14 +11,14 @@ package person;
  * <li><strong>status:</strong> the status of the student (see PersonStatus enum)</li>
  * <li><strong>student type:</strong> a student can only be assigned a single student type
  *   (see StudentType enum)</li>
- * <li><strong>student program:</strong> a student can only be assigned to a single program at 
- *   a point of time, but can switch from one program to another (i.e. when 
+ * <li><strong>student program:</strong> a student can only be assigned to a single program at
+ *   a point of time, but can switch from one program to another (i.e. when
  *   they've graduated from a program (see StudentProgram enum)</li>
  * <li><strong>student year:</strong> only relevant for undergraduates (see StudentYear enum)</li>
  * <li><strong>start term:</strong> associated with the quarter and year a student starts a
- *   particular program; for example, a single student may start the CERT in 
+ *   particular program; for example, a single student may start the CERT in
  *   RQ17 and then continue the MSCS in FQ18 (see Quarter enum)</li>
- * <li><strong>faculty advisor:</strong> students are assigned a faculty advisor, but may switch 
+ * <li><strong>faculty advisor:</strong> students are assigned a faculty advisor, but may switch
  *   advisors (i.e. faculty leaves or on sabbatical); may not be assigned an
  *   advisor for a period of time when first enrolled as a student</li>
  * <li><strong>email:</strong> the school (i.e. SU) email address</li>
@@ -47,23 +49,36 @@ package person;
  * <li><strong>faculty advisor:</strong> Roshanak Roshandel</li>
  * <li><strong>email:</strong> busterbluth@seattleu.edu</li>
  * </ul>
- * 
- * @author 
+ *
+ * @author
  */
 public class Student {
 
     /**
-     * 
+     *
      * @param firstName   The first name of the student
      * @param lastName    The last name of the student
      */
     public Student(String firstName, String lastName) {
-        
+
         // TODO: implement Student constructor
-    
+    	this.firstName = firstName;
+    	this.lastName = lastName;
     }
 
-    
+    // TODO: attempt menu: Source -> Generate Getters and Setters...
+
+    private String firstName;
+    private String lastName;
+    private int suid;
+    private PersonStatus status;
+    private StudentType type;
+    private StudentProgram program;
+    private StudentYear year;
+    private Quarter startTerm;
+    private Faculty advisor;
+    private String email;
+
     // TODO: add Student fields
     // - first name
     // - last name

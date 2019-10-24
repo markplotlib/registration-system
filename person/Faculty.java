@@ -1,5 +1,7 @@
 package person;
 
+import enums.*;
+
 /**
  * <p>The <strong>Faculty</strong> class holds information about a faculty member.</p>
  * <ul>
@@ -32,12 +34,25 @@ public class Faculty {
      * @param lastName    The last name of the faculty
      */
     public Faculty(String firstName, String lastName) {
-        
+
         // TODO: implement Faculty constructor
-    
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Faculty: Name=" + firstName + " " + lastName;
+    }
+
+    private String firstName;
+    private String lastName;
+// private int suid;
+// private PersonStatus status;
+// private FacultyType type;
+// private Building office;
+// private String email;
+
     // TODO: add Faculty fields
     // - first name
     // - last name
