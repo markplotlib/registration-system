@@ -190,7 +190,7 @@ public class RegistrationSystem {
      *
      * @return
      */
-    private String generateList(String listName, List list) {
+    private String generateList(String listName, List<?> list) {
         StringBuilder sb = new StringBuilder();
         // list header
         sb.append("-- " + listName + " LIST --\r");
@@ -202,7 +202,6 @@ public class RegistrationSystem {
         return sb.toString();
     }
 
-// SPAGHETTI CODE -- YUCK
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -215,13 +214,6 @@ public class RegistrationSystem {
 
         return sb.toString();
     }
-// DO I KEEP OR DELETE THIS?
-
-// You may include additional public functionality in RegistrationSystem, Faculty, Student, Course, and Section classes.
-// Do not include any functionality that is not necessary.
-// public List getfacultyList() {
-//     return facultyList;
-// }
 
 
     private List<Faculty> facultyList;
@@ -230,8 +222,6 @@ public class RegistrationSystem {
 // private List<Section> sectionList;
 
     // TODO: add RegistrationSystem collections
-    // - student list
-    // - faculty list
     // - subject list
     // = course list
     // - section list
