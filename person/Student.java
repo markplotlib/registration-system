@@ -68,16 +68,21 @@ public class Student {
 
     // TODO: attempt menu: Source -> Generate Getters and Setters...
 
+    @Override
+    public String toString() {
+        return "Student: Name=" + firstName + " " + lastName + "\r";
+    }
+
     private String firstName;
     private String lastName;
-    private int suid;
-    private PersonStatus status;
-    private StudentType type;
-    private StudentProgram program;
-    private StudentYear year;
-    private Quarter startTerm;
-    private Faculty advisor;
-    private String email;
+// private int suid;
+// private PersonStatus status;
+// private StudentType type;
+// private StudentProgram program;
+// private StudentYear year;
+// private Quarter startTerm;
+// private Faculty advisor;
+// private String email;
 
     // TODO: add Student fields
     // - first name

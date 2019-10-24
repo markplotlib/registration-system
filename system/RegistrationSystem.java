@@ -32,11 +32,12 @@ public class RegistrationSystem {
      *
      */
     public RegistrationSystem() {
+        // initialize collections (of faculty, students,
+        // courses, sections)
         facultyList = new ArrayList<Faculty>();
+        studentList = new ArrayList<Student>();
 
         // TODO: implement WITHIN RegistrationSystem constructor:
-            // initialize studentList
-//            studentList = new ArrayList<Student>();
             // initialize courseList
             // initialize sectionList
 
@@ -45,14 +46,27 @@ public class RegistrationSystem {
     /**
      * Add a FUN faculty
      *
-     * @param firstName   The first name of the faculty
-     * @param lastName    The last name of the faculty
+     * @param firstName   The person's first name
+     * @param lastName    The person's last name
      * @throws DuplicatePersonException The person is already in the system
      */
     public void addFaculty(String firstName, String lastName)
                             throws DuplicatePersonException {
     	Faculty prof = new Faculty(firstName, lastName);
         facultyList.add(prof);
+    }
+
+    /**
+     * Add a FUN student
+     *
+     * @param firstName   The person's first name
+     * @param lastName    The person's last name
+     * @throws DuplicatePersonException The person is already in the system
+     */
+    public void addStudent(String firstName, String lastName)
+                            throws DuplicatePersonException {
+    	Student stud = new Student(firstName, lastName);
+        studentList.add(stud);
     }
 
     /**
@@ -172,13 +186,23 @@ public class RegistrationSystem {
 
     }
 
-// DO I KEEP OR DELETE THIS?
+// SPAGHETTI CODE -- YUCK
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
+
+        System.out.println("-- FACULTY LIST --");
         for (int member = 0; member < facultyList.size(); member++) {
             sb.append(facultyList.get(member).toString());
         }
+
+        System.out.println("-- STUDENT LIST --");
+        for (int member = 0; member < studentList.size(); member++) {
+            sb.append(studentList.get(member).toString());
+        }
+                // TODO: implement printing for course list
+                // TODO: implement printing for section list
+
         return sb.toString();
     }
 // DO I KEEP OR DELETE THIS?
@@ -191,7 +215,7 @@ public class RegistrationSystem {
 
 
     private List<Faculty> facultyList;
-// private List<Student> studentList;
+    private List<Student> studentList;
 // private List<Course> courseList;
 // private List<Section> sectionList;
 
