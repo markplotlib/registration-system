@@ -176,8 +176,11 @@ public class RegistrationSystem {
 // DO I KEEP OR DELETE THIS?
     @Override
     public String toString() {
-    	System.out.println("@Override toString() in RegistrationSystem...");
-        return facultyList.get(0).toString();
+        StringBuilder sb = new StringBuilder();
+        for (int member = 0; member < facultyList.size(); member++) {
+            sb.append(facultyList.get(member).toString());
+        }
+        return sb.toString();
     }
 // DO I KEEP OR DELETE THIS?
 
