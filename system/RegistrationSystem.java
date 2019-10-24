@@ -186,22 +186,32 @@ public class RegistrationSystem {
 
     }
 
+    /**
+     *
+     * @return
+     */
+    private String generateList(String listName, List list) {
+        StringBuilder sb = new StringBuilder();
+        // list header
+        sb.append("-- " + listName + " LIST --\r");
+
+        for (int entry = 0; entry < list.size(); entry++) {
+            sb.append(list.get(entry).toString());
+        }
+        sb.append("\r\r");
+        return sb.toString();
+    }
+
 // SPAGHETTI CODE -- YUCK
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-        System.out.println("-- FACULTY LIST --");
-        for (int member = 0; member < facultyList.size(); member++) {
-            sb.append(facultyList.get(member).toString());
-        }
-
-        System.out.println("-- STUDENT LIST --");
-        for (int member = 0; member < studentList.size(); member++) {
-            sb.append(studentList.get(member).toString());
-        }
-                // TODO: implement printing for course list
-                // TODO: implement printing for section list
+        sb.append(generateList("FACULTY", facultyList));
+        sb.append(generateList("STUDENT", studentList));
+        // TODO: implement printing for student list
+        // TODO: implement printing for course list
+        // TODO: implement printing for section list
 
         return sb.toString();
     }
