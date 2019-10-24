@@ -16,10 +16,10 @@ import exception.DuplicateSectionException;
 import exception.SectionNotFoundException;
 
 /**
- * <p>The <strong>Driver</strong> interfaces with the registration system and
+ * <p>The <strong>Driver</strong> interfaces with the registration system and 
  * populates faculty, students, subjects, courses, their prerequisites, and
  * course sections.</p>
- *
+ * 
  * @author ohsh
  */
 public class Driver {
@@ -72,7 +72,6 @@ public class Driver {
             System.out.println(e.getMessage());
         }
     }
-
     private static void populateStudents(RegistrationSystem system) throws DuplicatePersonException {
         system.addStudent("Michael", "Bluth", StudentType.UNDERGRAD, StudentProgram.BSCS, Quarter.FQ, 2018);
         system.addStudent("Gob", "Bluth", StudentType.UNDERGRAD, StudentProgram.BACS, Quarter.SQ, 2018);
@@ -81,7 +80,7 @@ public class Driver {
         system.addStudent("Lindsay", "Funke", StudentType.UNDERGRAD, StudentProgram.BACS, Quarter.FQ, 2018);
         system.addStudent("Tobias", "Funke", StudentType.UNDERGRAD, StudentProgram.BACS, Quarter.FQ, 2017);
         system.addStudent("Maeby", "Funke", StudentType.UNDERGRAD, StudentProgram.BSCS, Quarter.SQ, 2017);
-        system.addStudent("Kitty", "Sanchez", StudentType.UNDERGRAD, StudentProgram.UNDECIDED, Quarter.FQ, 2018);
+        system.addStudent("Kitty", "Sanchez", StudentType.UNDERGRAD, StudentProgram.UNDECIDED, Quarter.FQ, 2018);    
         system.addStudent("Edsger", "Dijkstra", StudentType.GRAD, StudentProgram.CERT, Quarter.RQ, 2018);
         system.addStudent("Ada", "Lovelace", StudentType.GRAD, StudentProgram.CERT, Quarter.FQ, 2018);
         system.addStudent("Grace", "Hopper", StudentType.GRAD, StudentProgram.MSCS, Quarter.WQ, 2017);
@@ -89,7 +88,7 @@ public class Driver {
         system.addStudent("Alan", "Turing", StudentType.GRAD, StudentProgram.CERT, Quarter.RQ, 2017);
         system.addStudent("Katherine", "Johnson", StudentType.GRAD, StudentProgram.MSCS, Quarter.FQ, 2018);
     }
-
+  
     private static void populateFaculty(RegistrationSystem system) throws DuplicatePersonException {
         system.addFaculty("Adair", "Dingle", FacultyType.PROF, Building.ENGR, 531, "dingle@seattleu.edu");
         system.addFaculty("Steven", "Hanks", FacultyType.LECTURE, Building.ENGR, 511, "hankssteven@seattleu.edu");
@@ -116,7 +115,7 @@ public class Driver {
         system.addSubject(SubjectCode.CPSC, "Computer Science");
         system.addSubject(SubjectCode.MATH, "Mathematics");
     }
-
+  
     private static void populateCourses(RegistrationSystem system) throws DuplicateCourseException {
         system.addCourse(SubjectCode.CPSC, 1420, "Programming and Problem Solving I", 5);
         system.addCourse(SubjectCode.CPSC, 1430, "Programming and Problem Solving II", 5);
@@ -167,8 +166,8 @@ public class Driver {
         system.addPrerequisite(SubjectCode.CPSC, 5003, SubjectCode.CPSC, 5002);
         system.addPrerequisite(SubjectCode.CPSC, 5011, SubjectCode.CPSC, 5003);
         system.addPrerequisite(SubjectCode.CPSC, 5021, SubjectCode.CPSC, 5003);
-        system.addPrerequisite(SubjectCode.CPSC, 5042, SubjectCode.CPSC, 5041);
-        system.addPrerequisite(SubjectCode.CPSC, 5200, SubjectCode.CPSC, 5011);
+        system.addPrerequisite(SubjectCode.CPSC, 5042, SubjectCode.CPSC, 5041);    
+        system.addPrerequisite(SubjectCode.CPSC, 5200, SubjectCode.CPSC, 5011);        
         system.addPrerequisite(SubjectCode.CPSC, 5200, SubjectCode.CPSC, 5051);
         system.addPrerequisite(SubjectCode.CPSC, 5600, SubjectCode.CPSC, 5031);
         system.addPrerequisite(SubjectCode.CPSC, 5600, SubjectCode.CPSC, 5042);

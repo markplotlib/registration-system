@@ -77,8 +77,7 @@ public class RegistrationSystem {
 
     /**
      * Add a faculty to the faculty list collection.
-     *
-     * @param firstName   The first name of the faculty
+     *     * @param firstName   The first name of the faculty
      * @param lastName    The last name of the faculty
      * @param type        The faculty type
      * @param bldg        The building of the faculty office

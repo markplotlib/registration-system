@@ -23,13 +23,13 @@ import enums.*;
  * <li><strong>office (building/room):</strong> ENGR 504</li>
  * <li><strong>email:</strong> ohsh@seattleu.edu</li>
  * </ul>
- *
- * @author
+ * 
+ * @author 
  */
 public class Faculty {
 
     /**
-     *
+     * 
      * @param firstName   The first name of the faculty
      * @param lastName    The last name of the faculty
      */
@@ -52,7 +52,6 @@ public class Faculty {
 // private FacultyType type;
 // private Building office;
 // private String email;
-
 
     // TODO: add Faculty fields
     // - first name
