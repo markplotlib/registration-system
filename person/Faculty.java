@@ -23,30 +23,28 @@ import enums.*;
  * <li><strong>office (building/room):</strong> ENGR 504</li>
  * <li><strong>email:</strong> ohsh@seattleu.edu</li>
  * </ul>
- * 
- * @author 
+ *
+ * @author
  */
-public class Faculty {
+public class Faculty extends Person {
 
     /**
-     * 
+     *
      * @param firstName   The first name of the faculty
      * @param lastName    The last name of the faculty
      */
     public Faculty(String firstName, String lastName) {
 
+    	super(firstName, lastName);
         // TODO: implement Faculty constructor
-        this.firstName = firstName;
-        this.lastName = lastName;
     }
 
     @Override
     public String toString() {
-        return "Faculty: Name=" + firstName + " " + lastName + "\r";
-    }
+//      return "Student: Name=" + super.getFullName() + "\r";
+        return "Student: Name=" + firstName + " " + lastName + "\r";
+}
 
-    private String firstName;
-    private String lastName;
 // private int suid;
 // private PersonStatus status;
 // private FacultyType type;
