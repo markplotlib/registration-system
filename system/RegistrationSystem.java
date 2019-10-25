@@ -43,31 +43,21 @@ public class RegistrationSystem {
 
     }
 
-    /**
-     * Add a FUN faculty
-     *
-     * @param firstName   The person's first name
-     * @param lastName    The person's last name
-     * @throws DuplicatePersonException The person is already in the system
-     */
-    public void addFaculty(String firstName, String lastName)
-                            throws DuplicatePersonException {
-    	Faculty prof = new Faculty(firstName, lastName);
-        facultyList.add(prof);
-    }
 
-    /**
-     * Add a FUN student
-     *
-     * @param firstName   The person's first name
-     * @param lastName    The person's last name
-     * @throws DuplicatePersonException The person is already in the system
-     */
-    public void addStudent(String firstName, String lastName)
-                            throws DuplicatePersonException {
-    	Student stud = new Student(firstName, lastName);
-        studentList.add(stud);
-    }
+/**
+ * TEMPORARY CONSTRUCTOR CALL
+ */
+public void addFaculty(String firstName, String lastName) throws DuplicatePersonException {
+	Faculty prof = new Faculty(firstName, lastName); facultyList.add(prof);
+}
+/**
+ * TEMPORARY CONSTRUCTOR CALL
+ */
+public void addStudent(String firstName, String lastName) throws DuplicatePersonException {
+	Student stud = new Student(firstName, lastName); studentList.add(stud);
+}
+
+
 
     /**
      * Add a student to the student list collection.

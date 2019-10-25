@@ -35,13 +35,11 @@ public class Driver {
         printSystem(system);
     }
 
-    private static void funFac(RegistrationSystem system) throws DuplicatePersonException {
+    private static void tempPrototype(RegistrationSystem system) throws DuplicatePersonException {
         // system.addFaculty("Roshanak", "Roshandel", FacultyType.ASSOCPROF, Building.ENGR, 508, "roshanak@seattleu.edu");
         system.addFaculty("Roshanak", "Roshandel");
         system.addFaculty("James", "Obare");
-    }
 
-    private static void funStud(RegistrationSystem system) throws DuplicatePersonException {
         // system.addStudent("Alan", "Turing", StudentType.GRAD, StudentProgram.CERT, Quarter.RQ, 2017);
         system.addStudent("Peter", "Gabriel");
         system.addStudent("James", "Brown");
@@ -49,8 +47,7 @@ public class Driver {
 
     private static void populateSystem(RegistrationSystem system) {
         try {
-			funFac(system);
-			funStud(system);
+			tempPrototype(system);
 		} catch (DuplicatePersonException e1) {
             System.out.println(e1.getMessage());
 			e1.printStackTrace();
