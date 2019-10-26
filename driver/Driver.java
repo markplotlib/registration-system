@@ -45,9 +45,8 @@ public class Driver {
         system.addStudent("James", "Brown");
 
         // system.addCourse(SubjectCode.CPSC, 5011, "Object-Oriented Concepts", 3);
-        // system.addCourse(5011, "Object-Oriented Concepts", 3);
-        system.addCourse(5011);
-        system.addCourse(5021);
+        system.addCourse(5011, "Object-Oriented Concepts", 3);
+        system.addCourse(5021, "Database Systems", 3);
     }
 
     private static void populateSystem(RegistrationSystem system) {

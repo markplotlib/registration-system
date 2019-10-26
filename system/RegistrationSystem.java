@@ -46,7 +46,7 @@ public class RegistrationSystem {
 
 
 /**
- * TEMPORARY CONSTRUCTOR CALL
+ * TEMPORARY CONSTRUCTOR CALLS
  */
 public void addFaculty(String firstName, String lastName) throws DuplicatePersonException {
 	facultyList.add(new Faculty(firstName, lastName));
@@ -54,11 +54,11 @@ public void addFaculty(String firstName, String lastName) throws DuplicatePerson
 public void addStudent(String firstName, String lastName) throws DuplicatePersonException {
     studentList.add(new Student(firstName, lastName));
 }
-public void addCourse(int courseNum) throws DuplicateCourseException {
-    courseList.add(new Course(courseNum));
+public void addCourse(int num, String name, int creditNum) throws DuplicateCourseException {
+    courseList.add(new Course(num, name, creditNum));
 }
 /**
- * </ TEMPORARY CONSTRUCTOR CALL>
+ * </ TEMPORARY CONSTRUCTOR CALLS>
  */
 
 
