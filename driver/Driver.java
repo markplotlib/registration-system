@@ -35,7 +35,7 @@ public class Driver {
         printSystem(system);
     }
 
-    private static void tempPrototype(RegistrationSystem system) throws DuplicatePersonException {
+    private static void tempPrototype(RegistrationSystem system) throws DuplicatePersonException, DuplicateCourseException {
         // system.addFaculty("Roshanak", "Roshandel", FacultyType.ASSOCPROF, Building.ENGR, 508, "roshanak@seattleu.edu");
         system.addFaculty("Roshanak", "Roshandel");
         system.addFaculty("James", "Obare");
@@ -43,17 +43,25 @@ public class Driver {
         // system.addStudent("Alan", "Turing", StudentType.GRAD, StudentProgram.CERT, Quarter.RQ, 2017);
         system.addStudent("Peter", "Gabriel");
         system.addStudent("James", "Brown");
+
+        // system.addCourse(SubjectCode.CPSC, 5011, "Object-Oriented Concepts", 3);
+        // system.addCourse(5011, "Object-Oriented Concepts", 3);
+        system.addCourse(5011);
+        system.addCourse(5021);
     }
 
     private static void populateSystem(RegistrationSystem system) {
-        try {
-			tempPrototype(system);
-		} catch (DuplicatePersonException e1) {
-            System.out.println(e1.getMessage());
-			e1.printStackTrace();
-		}
+boolean isPrototype = true;
+if (isPrototype) {
+    try {
+    	tempPrototype(system);
+    } catch (DuplicatePersonException | DuplicateCourseException e1) {
+        System.out.println(e1.getMessage());
+    	e1.printStackTrace();
+    }
+}
 
-
+if (!isPrototype) {
         try {
             populateFaculty(system);
             populateStudents(system);
@@ -76,6 +84,7 @@ public class Driver {
         } catch (SectionNotFoundException e) {
             System.out.println(e.getMessage());
         }
+}
     }
 
     private static void populateStudents(RegistrationSystem system) throws DuplicatePersonException {

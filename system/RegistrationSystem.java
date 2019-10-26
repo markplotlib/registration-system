@@ -37,11 +37,11 @@ public class RegistrationSystem {
         // courses, sections)
         facultyList = new ArrayList<Faculty>();
         studentList = new ArrayList<Student>();
+        courseList = new ArrayList<Course>();
 
         // TODO: implement WITHIN RegistrationSystem constructor:
-            // initialize courseList
             // initialize sectionList
-
+            // initialize subjectList???
     }
 
 
@@ -51,12 +51,15 @@ public class RegistrationSystem {
 public void addFaculty(String firstName, String lastName) throws DuplicatePersonException {
 	facultyList.add(new Faculty(firstName, lastName));
 }
-/**
- * TEMPORARY CONSTRUCTOR CALL
- */
 public void addStudent(String firstName, String lastName) throws DuplicatePersonException {
-	studentList.add(new Student(firstName, lastName));
+    studentList.add(new Student(firstName, lastName));
 }
+public void addCourse(int courseNum) throws DuplicateCourseException {
+    courseList.add(new Course(courseNum));
+}
+/**
+ * </ TEMPORARY CONSTRUCTOR CALL>
+ */
 
 
 
@@ -200,8 +203,9 @@ public void addStudent(String firstName, String lastName) throws DuplicatePerson
 
         sb.append(generateList("FACULTY", facultyList));
         sb.append(generateList("STUDENT", studentList));
-        // TODO: implement printing for course list
+        sb.append(generateList("COURSE", courseList));
         // TODO: implement printing for section list
+        // TODO: implement printing for subject list???
 
         return sb.toString();
     }
@@ -209,7 +213,7 @@ public void addStudent(String firstName, String lastName) throws DuplicatePerson
 
     private List<Faculty> facultyList;
     private List<Student> studentList;
-// private List<Course> courseList;
+    private List<Course> courseList;
 // private List<Section> sectionList;
 
     // TODO: add RegistrationSystem collections
