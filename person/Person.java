@@ -37,10 +37,6 @@ public class Person {
         this.lastName = lastName;
     }
 
-//    public String getFullName() {
-//        return firstName + " " + lastName;
-//    }
-
     protected String firstName;
     protected String lastName;
 // private int suid;
@@ -48,8 +44,6 @@ public class Person {
 // private String email;
 
     // TODO: add person fields
-    // - first name
-    // - last name
     // - SUID
     // - status (see PersonStatus)
     // - email

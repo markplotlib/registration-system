@@ -52,8 +52,6 @@ public class Faculty extends Person {
 // private String email;
 
     // TODO: add Faculty fields
-    // - first name
-    // - last name
     // - SUID
     // - status (see PersonStatus)
     // - faculty type (see FacultyType)

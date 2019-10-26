@@ -201,7 +201,6 @@ public class Driver {
 
     private static void printSystem(RegistrationSystem system) {
         System.out.println(system);
-// System.out.println(system.getfacultyList());
     }
 
 }

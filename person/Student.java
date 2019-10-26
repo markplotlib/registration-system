@@ -81,8 +81,6 @@ public class Student extends Person {
 // private String email;
 
     // TODO: add Student fields
-    // - first name
-    // - last name
     // - SUID
     // - status (see PersonStatus)
     // - student type (see StudentType)

@@ -183,6 +183,7 @@ public void addStudent(String firstName, String lastName) throws DuplicatePerson
      */
     private String generateList(String listName, List<?> list) {
         StringBuilder sb = new StringBuilder();
+
         // list header
         sb.append("-- " + listName + " LIST --\r");
 
@@ -199,7 +200,6 @@ public void addStudent(String firstName, String lastName) throws DuplicatePerson
 
         sb.append(generateList("FACULTY", facultyList));
         sb.append(generateList("STUDENT", studentList));
-        // TODO: implement printing for student list
         // TODO: implement printing for course list
         // TODO: implement printing for section list
 
