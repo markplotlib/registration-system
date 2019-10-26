@@ -1,6 +1,7 @@
 package person;
 
 import enums.*;
+import system.RegistrationSystem;
 
 /**
  * <p>The <strong>Student</strong> class holds information about a student.</p>
@@ -59,9 +60,9 @@ public class Student extends Person {
      * @param firstName   The first name of the student
      * @param lastName    The last name of the student
      */
-    public Student(String firstName, String lastName) {
+    public Student(String firstName, String lastName, RegistrationSystem system) {
 
-    	super(firstName, lastName);
+    	super(firstName, lastName, system);
         // TODO: implement Student constructor
     }
 
@@ -69,12 +70,11 @@ public class Student extends Person {
     @Override
     public String toString() {
         return "Student: Name=" + firstName + " " + lastName +
-//        ", SUID=" + suid
+        ", SUID=" + suid +
         ", Email=" + email +
         "\r";
     }
 
-// private int suid;
 // private PersonStatus status;
 // private StudentType type;
 // private StudentProgram program;

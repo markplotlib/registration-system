@@ -37,12 +37,12 @@ public class Driver {
 
     private static void tempPrototype(RegistrationSystem system) throws DuplicatePersonException {
         // system.addFaculty("Roshanak", "Roshandel", FacultyType.ASSOCPROF, Building.ENGR, 508, "roshanak@seattleu.edu");
-        system.addFaculty("Roshanak", "Roshandel");
-        system.addFaculty("James", "Obare");
+        system.addFaculty("Roshanak", "Roshandel", system);
+        system.addFaculty("James", "Obare", system);
 
         // system.addStudent("Alan", "Turing", StudentType.GRAD, StudentProgram.CERT, Quarter.RQ, 2017);
-        system.addStudent("Peter", "Gabriel");
-        system.addStudent("James", "Brown");
+        system.addStudent("Peter", "Gabriel", system);
+        system.addStudent("James", "Brown", system);
     }
 
     private static void populateSystem(RegistrationSystem system) {

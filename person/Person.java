@@ -1,6 +1,7 @@
 package person;
 
 import enums.*;
+import system.RegistrationSystem;
 
 /**
  * <p>The <strong>Person</strong> class holds information about a person
@@ -30,22 +31,22 @@ public class Person {
      * @param firstName   The first name
      * @param lastName    The last name
      */
-    public Person(String firstName, String lastName) {
+    public Person(String firstName, String lastName, RegistrationSystem system) {
 
         // TODO: implement Person constructor
         this.firstName = firstName;
         this.lastName = lastName;
+        this.suid = system.assignSuId();
         this.email = firstName.toLowerCase() + lastName.toLowerCase() +
             "@seattleu.edu";
     }
 
     protected String firstName;
     protected String lastName;
-// private int suid;
+    protected int suid;
 // private PersonStatus status;
     protected String email;
 
     // TODO: add person fields
-    // - SUID
     // - status (see PersonStatus)
 }

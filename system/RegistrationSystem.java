@@ -33,6 +33,10 @@ public class RegistrationSystem {
      *
      */
     public RegistrationSystem() {
+
+        // SU ID number generator
+
+
         // initialize collections (of faculty, students,
         // courses, sections)
         facultyList = new ArrayList<Faculty>();
@@ -48,14 +52,14 @@ public class RegistrationSystem {
 /**
  * TEMPORARY CONSTRUCTOR CALL
  */
-public void addFaculty(String firstName, String lastName) throws DuplicatePersonException {
-	facultyList.add(new Faculty(firstName, lastName));
+public void addFaculty(String firstName, String lastName, RegistrationSystem system) throws DuplicatePersonException {
+	facultyList.add(new Faculty(firstName, lastName, system));
 }
 /**
  * TEMPORARY CONSTRUCTOR CALL
  */
-public void addStudent(String firstName, String lastName) throws DuplicatePersonException {
-	studentList.add(new Student(firstName, lastName));
+public void addStudent(String firstName, String lastName, RegistrationSystem system) throws DuplicatePersonException {
+	studentList.add(new Student(firstName, lastName, system));
 }
 
 
@@ -181,18 +185,9 @@ public void addStudent(String firstName, String lastName) throws DuplicatePerson
      *
      * @return
      */
-    private String generateList(String listName, List<?> list) {
-        StringBuilder sb = new StringBuilder();
-
-        // list header
-        sb.append("-- " + listName + " LIST --\r");
-
-        for (int entry = 0; entry < list.size(); entry++) {
-            sb.append(list.get(entry).toString());
-        }
-// sb.append("\r\r");
-        return sb.toString();
-    }
+     public int assignSuId() {
+         return ++nextUnassignedSuId;
+     }
 
     @Override
     public String toString() {
@@ -206,6 +201,24 @@ public void addStudent(String firstName, String lastName) throws DuplicatePerson
         return sb.toString();
     }
 
+    /**
+     *
+     * @return
+     */
+    private String generateList(String listName, List<?> list) {
+        StringBuilder sb = new StringBuilder();
+
+        // list header
+        sb.append("-- " + listName + " LIST --\r");
+
+        for (int entry = 0; entry < list.size(); entry++) {
+            sb.append(list.get(entry).toString());
+        }
+// sb.append("\r\r");
+        return sb.toString();
+    }
+
+    private int nextUnassignedSuId = 100000;
 
     private List<Faculty> facultyList;
     private List<Student> studentList;
