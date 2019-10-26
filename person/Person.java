@@ -35,16 +35,17 @@ public class Person {
         // TODO: implement Person constructor
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = firstName.toLowerCase() + lastName.toLowerCase() +
+            "@seattleu.edu";
     }
 
     protected String firstName;
     protected String lastName;
 // private int suid;
 // private PersonStatus status;
-// private String email;
+    protected String email;
 
     // TODO: add person fields
     // - SUID
     // - status (see PersonStatus)
-    // - email
 }

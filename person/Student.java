@@ -65,11 +65,14 @@ public class Student extends Person {
         // TODO: implement Student constructor
     }
 
+// QUESTION: CAN THIS CODE BE REUSED BETWEEN Student.java and Faculty.java?
     @Override
     public String toString() {
-//      return "Student: Name=" + super.getFullName() + "\r";
-        return "Student: Name=" + firstName + " " + lastName + "\r";
-}
+        return "Student: Name=" + firstName + " " + lastName +
+//        ", SUID=" + suid
+        ", Email=" + email +
+        "\r";
+    }
 
 // private int suid;
 // private PersonStatus status;
@@ -78,7 +81,6 @@ public class Student extends Person {
 // private StudentYear year;
 // private Quarter startTerm;
 // private Faculty advisor;
-// private String email;
 
     // TODO: add Student fields
     // - SUID
@@ -88,6 +90,5 @@ public class Student extends Person {
     // - student year (see StudentYear; only if undergrad––default to freshman)
     // - start term (see Quarter)
     // - faculty advisor
-    // - email
 
 }
