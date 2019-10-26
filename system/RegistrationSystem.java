@@ -2,6 +2,7 @@ package system;
 
 import registration.Course;
 import registration.Section;
+import person.Person;
 import person.Faculty;
 import person.Student;
 import enums.Building;
@@ -48,13 +49,13 @@ public class RegistrationSystem {
  * TEMPORARY CONSTRUCTOR CALL
  */
 public void addFaculty(String firstName, String lastName) throws DuplicatePersonException {
-	Faculty prof = new Faculty(firstName, lastName); facultyList.add(prof);
+	facultyList.add(new Faculty(firstName, lastName));
 }
 /**
  * TEMPORARY CONSTRUCTOR CALL
  */
 public void addStudent(String firstName, String lastName) throws DuplicatePersonException {
-	Student stud = new Student(firstName, lastName); studentList.add(stud);
+	studentList.add(new Student(firstName, lastName));
 }
 
 
@@ -188,7 +189,7 @@ public void addStudent(String firstName, String lastName) throws DuplicatePerson
         for (int entry = 0; entry < list.size(); entry++) {
             sb.append(list.get(entry).toString());
         }
-        sb.append("\r\r");
+// sb.append("\r\r");
         return sb.toString();
     }
 

@@ -52,7 +52,7 @@ import enums.*;
  *
  * @author
  */
-public class Student {
+public class Student extends Person {
 
     /**
      *
@@ -61,20 +61,16 @@ public class Student {
      */
     public Student(String firstName, String lastName) {
 
+    	super(firstName, lastName);
         // TODO: implement Student constructor
-    	this.firstName = firstName;
-    	this.lastName = lastName;
     }
-
-    // TODO: attempt menu: Source -> Generate Getters and Setters...
 
     @Override
     public String toString() {
+//      return "Student: Name=" + super.getFullName() + "\r";
         return "Student: Name=" + firstName + " " + lastName + "\r";
-    }
+}
 
-    private String firstName;
-    private String lastName;
 // private int suid;
 // private PersonStatus status;
 // private StudentType type;
