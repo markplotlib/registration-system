@@ -111,7 +111,8 @@ public void addStudent(String firstName, String lastName) throws DuplicatePerson
                             throws DuplicateSubjectException {
 
         // TODO: implement addSubject method
-
+        this.code = code;
+        this.desc = desc;
     }
 
     /**
