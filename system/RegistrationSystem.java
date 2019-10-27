@@ -20,6 +20,9 @@ import exception.DuplicateSectionException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 /**
  * <p>The <strong>RegistrationSystem</strong> class stores information about the school,
@@ -37,6 +40,7 @@ public class RegistrationSystem {
         // courses, sections)
         facultyList = new ArrayList<Faculty>();
         studentList = new ArrayList<Student>();
+        subjectMap = new HashMap<String, SubjectCode>();
 
         // TODO: implement WITHIN RegistrationSystem constructor:
             // initialize courseList
@@ -111,8 +115,7 @@ public void addStudent(String firstName, String lastName) throws DuplicatePerson
                             throws DuplicateSubjectException {
 
         // TODO: implement addSubject method
-        this.code = code;
-        this.desc = desc;
+        subjectMap.put(desc, code);
     }
 
     /**
@@ -178,11 +181,24 @@ public void addStudent(String firstName, String lastName) throws DuplicatePerson
 
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(generateStringFromList("FACULTY", facultyList));
+        sb.append(generateStringFromList("STUDENT", studentList));
+        sb.append(generateStringFromMap("SUBJECT", subjectMap));
+        // TODO: implement printing for course list
+        // TODO: implement printing for section list
+
+        return sb.toString();
+    }
+
     /**
-     *
+     * private helper function
      * @return
      */
-    private String generateList(String listName, List<?> list) {
+    private String generateStringFromList(String listName, List<?> list) {
         StringBuilder sb = new StringBuilder();
 
         // list header
@@ -195,26 +211,33 @@ public void addStudent(String firstName, String lastName) throws DuplicatePerson
         return sb.toString();
     }
 
-    @Override
-    public String toString() {
+    /**
+     * private helper function
+     * @return
+     */
+    private String generateStringFromMap(String mapName, Map<?, ?> map) {
         StringBuilder sb = new StringBuilder();
 
-        sb.append(generateList("FACULTY", facultyList));
-        sb.append(generateList("STUDENT", studentList));
-        // TODO: implement printing for course list
-        // TODO: implement printing for section list
-
+        // list header
+        sb.append("-- " + mapName + " LIST --\r");
+        
+        for (Entry<?, ?> entry : map.entrySet()) {
+            sb.append("Subject: " + entry.getKey() + 
+            		  " (" + entry.getValue() + ")\r");
+        }
+        
+        sb.append("\r\r");
         return sb.toString();
     }
 
 
     private List<Faculty> facultyList;
     private List<Student> studentList;
+    private Map<String, SubjectCode> subjectMap;
 // private List<Course> courseList;
 // private List<Section> sectionList;
 
     // TODO: add RegistrationSystem collections
-    // - subject list
     // = course list
     // - section list
     //
