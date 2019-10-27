@@ -34,9 +34,9 @@ public class Faculty extends Person {
      * @param firstName   The first name of the faculty
      * @param lastName    The last name of the faculty
      */
-    public Faculty(String firstName, String lastName, RegistrationSystem system) {
+    public Faculty(String firstName, String lastName) {
 
-        super(firstName, lastName, system);
+        super(firstName, lastName);
         // TODO: implement Faculty constructor
     }
 

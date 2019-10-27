@@ -53,13 +53,13 @@ public class RegistrationSystem {
  * TEMPORARY CONSTRUCTOR CALL
  */
 public void addFaculty(String firstName, String lastName, RegistrationSystem system) throws DuplicatePersonException {
-	facultyList.add(new Faculty(firstName, lastName, system));
+	facultyList.add(new Faculty(firstName, lastName));
 }
 /**
  * TEMPORARY CONSTRUCTOR CALL
  */
 public void addStudent(String firstName, String lastName, RegistrationSystem system) throws DuplicatePersonException {
-	studentList.add(new Student(firstName, lastName, system));
+	studentList.add(new Student(firstName, lastName));
 }
 
 
@@ -181,14 +181,6 @@ public void addStudent(String firstName, String lastName, RegistrationSystem sys
 
     }
 
-    /**
-     *
-     * @return
-     */
-     public int assignSuId() {
-         return ++nextUnassignedSuId;
-     }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -217,8 +209,6 @@ public void addStudent(String firstName, String lastName, RegistrationSystem sys
 // sb.append("\r\r");
         return sb.toString();
     }
-
-    private int nextUnassignedSuId = 100000;
 
     private List<Faculty> facultyList;
     private List<Student> studentList;

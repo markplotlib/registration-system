@@ -60,9 +60,9 @@ public class Student extends Person {
      * @param firstName   The first name of the student
      * @param lastName    The last name of the student
      */
-    public Student(String firstName, String lastName, RegistrationSystem system) {
+    public Student(String firstName, String lastName) {
 
-    	super(firstName, lastName, system);
+    	super(firstName, lastName);
         // TODO: implement Student constructor
     }
 

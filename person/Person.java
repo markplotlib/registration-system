@@ -31,15 +31,25 @@ public class Person {
      * @param firstName   The first name
      * @param lastName    The last name
      */
-    public Person(String firstName, String lastName, RegistrationSystem system) {
+    public Person(String firstName, String lastName) {
 
         // TODO: implement Person constructor
         this.firstName = firstName;
         this.lastName = lastName;
-        this.suid = system.assignSuId();
+        this.suid = generateSuId();
         this.email = firstName.toLowerCase() + lastName.toLowerCase() +
             "@seattleu.edu";
     }
+
+    /**
+     *
+     * @return
+     */
+    public int generateSuId() {
+        return ++newSuId;
+    }
+
+    protected int newSuId = 100000;
 
     protected String firstName;
     protected String lastName;
