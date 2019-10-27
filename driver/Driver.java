@@ -35,12 +35,15 @@ public class Driver {
         printSystem(system);
     }
 
-    private static void tempPrototype(RegistrationSystem system) throws DuplicatePersonException, DuplicateCourseException {
+    private static void tempPrototype(RegistrationSystem system) throws DuplicatePersonException, DuplicateCourseException, CourseNotFoundException, PersonNotFoundException, DuplicateSectionException, SectionNotFoundException {
          system.addFaculty("Roshanak", "Roshandel", FacultyType.ASSOCPROF, Building.ENGR, 508, "roshanak@seattleu.edu");
 
          system.addStudent("Alan", "Turing", StudentType.GRAD, StudentProgram.CERT, Quarter.RQ, 2017);
 
          system.addCourse(SubjectCode.CPSC, 5011, "Object-Oriented Concepts", 3);
+
+         // system.addSection(SubjectCode.CPSC, 5011, 2, "Sheila", "Oh", Quarter.FQ, 2018, 30, Building.LEML, 122);
+         system.addSection(SubjectCode.CPSC, 5011, 2, "Sheila", "Oh", Quarter.FQ, 2018, 30, Building.LEML, 122);
     }
 
     private static void populateSystem(RegistrationSystem system) {
@@ -48,7 +51,7 @@ boolean isPrototype = true;
 if (isPrototype) {
     try {
     	tempPrototype(system);
-    } catch (DuplicatePersonException | DuplicateCourseException e1) {
+    } catch (DuplicatePersonException | DuplicateCourseException | CourseNotFoundException | PersonNotFoundException | DuplicateSectionException | SectionNotFoundException e1) {
         System.out.println(e1.getMessage());
     	e1.printStackTrace();
     }
