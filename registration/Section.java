@@ -43,7 +43,7 @@ public class Section {
                     int year, int cap, Building bldg, int room) {
 
         // TODO: implement Section constructor
-        this.course = course;
+        this.courseSubjectCodeNum = course.getCourse();
 //        this.section = section;
 // this.instructor = instructor;
 // this.quarter = quarter;
@@ -56,15 +56,14 @@ public class Section {
     // private Faculty instructor;
 	@Override
 	public String toString() {
-		return "Section: " +
-//				+ "Course=" + course +
+		return "Section: Course=" + courseSubjectCodeNum +
 		// "-0" + section +
 //		": " +
 		"\r";
 	}
 
     // TODO: add Section fields including:
-    private Course course;
+    private String courseSubjectCodeNum;
 //    private int section;
 
 // hardcode
