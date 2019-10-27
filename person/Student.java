@@ -72,6 +72,7 @@ public class Student extends Person {
         return "Student: Name=" + firstName + " " + lastName +
         ", SUID=" + suid +
         ", Email=" + email +
+        ", Status=" + status + 
         "\r";
     }
 

@@ -39,6 +39,8 @@ public class Person {
         this.suid = generateSuId();
         this.email = firstName.toLowerCase() + lastName.toLowerCase() +
             "@seattleu.edu";
+        // default status for new people: ACTIVE
+        this.status = PersonStatus.ACTIVE;
     }
 
     /**
@@ -49,14 +51,20 @@ public class Person {
         return ++newSuId;
     }
 
+    /**
+     * 
+     * @param status
+     */
+    public void setStatus(PersonStatus status) {
+        this.status = status;
+    }
+
+    // SU ID generator
     protected int newSuId = 100000;
 
     protected String firstName;
     protected String lastName;
     protected int suid;
-// private PersonStatus status;
+    protected PersonStatus status;
     protected String email;
-
-    // TODO: add person fields
-    // - status (see PersonStatus)
 }
