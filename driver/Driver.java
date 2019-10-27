@@ -37,8 +37,8 @@ public class Driver {
 
     private static void tempPrototype(RegistrationSystem system) throws DuplicatePersonException {
         // system.addFaculty("Roshanak", "Roshandel", FacultyType.ASSOCPROF, Building.ENGR, 508, "roshanak@seattleu.edu");
-        system.addFaculty("Roshanak", "Roshandel", FacultyType.ASSOCPROF, "obarej@seattleu.edu");
-        system.addFaculty("James", "Obare", FacultyType.INSTRUCT, "roshanak@seattleu.edu");
+        system.addFaculty("Roshanak", "Roshandel", FacultyType.ASSOCPROF, Building.ENGR, 508, "obarej@seattleu.edu");
+        system.addFaculty("James", "Obare", FacultyType.INSTRUCT, Building.LEML, 122, "roshanak@seattleu.edu");
 
         // system.addStudent("Alan", "Turing", StudentType.GRAD, StudentProgram.CERT, Quarter.RQ, 2017);
         system.addStudent("Peter", "Gabriel");
