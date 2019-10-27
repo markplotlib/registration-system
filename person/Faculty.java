@@ -33,30 +33,37 @@ public class Faculty extends Person {
      *
      * @param firstName   The first name of the faculty
      * @param lastName    The last name of the faculty
+     * @param type        The type of faculty (see FacultyType enum)
+     * @param email       The school (i.e. SU) email address
+     * @param bldg
+     * @param room
+
+ office: includes building (i.e. ENGR) and room number (i.e 504)
+
      */
-    public Faculty(String firstName, String lastName, int suid, String email) {
+    public Faculty(String firstName, String lastName, int suid,
+                    FacultyType type, Building bldg, int room, String email) {
 
         super(firstName, lastName, suid);
         this.email = email;
-        // TODO: implement Faculty constructor
+        this.type = type;
+        this.office = bldg.toString() + " " + room;
     }
 
-// QUESTION: CAN THIS CODE BE REUSED BETWEEN Student.java and Faculty.java?
     @Override
     public String toString() {
         return "Faculty: Name=" + getFirstName() + " " + getLastName() +
         ", SUID=" + getSuId() +
-//        ", Email=" + email +
+        ", Email=" + email +
         ", Status=" + getStatus() +
-        "\r";
+        ", Type=" + type +
+        ", Office=" + office + "\r";
     }
 
+//////////////////////////////////////////////////////////////////////////////
+// TODO:
+// document these
     private String email;
-// private PersonStatus status;
-// private FacultyType type;
-// private Building office;
-
-    // TODO: add Faculty fields
-    // - faculty type (see FacultyType)
-    // - office (see Building)
+    private FacultyType type;
+    private String office;
 }
