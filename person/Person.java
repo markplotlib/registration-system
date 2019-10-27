@@ -31,13 +31,12 @@ public class Person {
      * @param firstName   The first name
      * @param lastName    The last name
      */
-    public Person(String firstName, String lastName) {
+    public Person(String firstName, String lastName, int suid) {
 
         // TODO: implement Person constructor
         this.firstName = firstName;
         this.lastName = lastName;
-        this.suid = 1000000000;
-        // this.suid = getSuId();
+        this.suid = suid;
         // default status for new people: ACTIVE
         this.status = PersonStatus.ACTIVE;
     }

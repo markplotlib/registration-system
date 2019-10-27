@@ -60,9 +60,9 @@ public class Student extends Person {
      * @param firstName   The first name of the student
      * @param lastName    The last name of the student
      */
-    public Student(String firstName, String lastName) {
+    public Student(String firstName, String lastName, int suid) {
 
-    	super(firstName, lastName);
+    	super(firstName, lastName, suid);
         this.email = firstName.toLowerCase() + lastName.toLowerCase() +
             "@seattleu.edu";
         // TODO: implement Student constructor
