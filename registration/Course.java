@@ -47,7 +47,7 @@ public class Course {
      *
      * @return
      */
-    public String getCourse() {
+    public String getCourseSubjectCodeNum() {
         return code + "-" + courseNum;
     }
 
@@ -62,7 +62,7 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course: Name=" + getCourse() +
+        return "Course: Name=" + getCourseSubjectCodeNum() +
         ": " + name +
         ", Credits=" + creditNum +
 // ", Prerequisites=[]" +
