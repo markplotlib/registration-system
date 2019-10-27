@@ -42,6 +42,15 @@ public class Course {
     	this.name = name;
     	this.creditNum = creditNum;
     }
+     
+    /**
+     * 
+     * @return
+     */
+    public String getCourseName() {
+        return name;
+    }
+
 
     @Override
     public String toString() {
