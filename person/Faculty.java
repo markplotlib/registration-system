@@ -39,6 +39,10 @@ public class Faculty extends Person {
         // TODO: implement Faculty constructor
     }
 
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
+
     @Override
     public String toString() {
 //      return "Student: Name=" + super.getFullName() + "\r";

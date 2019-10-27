@@ -45,21 +45,26 @@ public class Section {
         // TODO: implement Section constructor
         this.courseSubjectCodeNum = course.getCourseSubjectCodeNum();
         this.section = section;
-        this.courseName = course.getCourseName() == null ? "___COURSE_NAME_PLACEHOLDER___" : course.getCourseName();
-// this.instructor = instructor;
+this.courseName = course.getCourseName() == null ? "___COURSE_NAME_PLACEHOLDER___" : course.getCourseName();
+        this.instructor = instructor.getFullName();
+        this.term = "ASDF_9999";
 // this.quarter = quarter;
 // this.year = year
-// this.cap = cap;
+        this.cap = cap;
 // this.bldg = bldg;
 // this.room = room;
+        this.location = "BLDG_ROOM##";
     }
 
-    // private Faculty instructor;
 	@Override
 	public String toString() {
 		return "Section: Course=" + courseSubjectCodeNum +
 		"-0" + section +
 		": " + courseName +
+        ", Faculty=" + instructor +
+        ", Term=" + term +
+        ", Capacity=" + cap +
+        ", Room=" + location +
 		"\r";
 	}
 
@@ -67,6 +72,10 @@ public class Section {
 	private String courseName;
 	private String courseSubjectCodeNum;
     private int section;
+    private String instructor;
+    private String term;
+    private int cap;
+    private String location;
 
 // hardcode
 
@@ -74,7 +83,6 @@ public class Section {
 //     private Quarter quarter;
 //     private int year;
 //
-//     private int cap;
 //
 // // - location (see Building)
 //     private Building bldg;
