@@ -40,9 +40,9 @@ public class Driver {
         system.addFaculty("Roshanak", "Roshandel", "obarej@seattleu.edu");
         system.addFaculty("James", "Obare", "roshanak@seattleu.edu");
 
-        // system.addStudent("Alan", "Turing", StudentType.GRAD, StudentProgram.CERT, Quarter.RQ, 2017);
-        system.addStudent("Peter", "Gabriel");
-        system.addStudent("James", "Brown");
+        system.addStudent("Alan", "Turing", StudentType.GRAD, StudentProgram.CERT, Quarter.RQ, 2017);
+        system.addStudent("Peter", "Gabriel", StudentType.UNDERGRAD, StudentProgram.CERT, Quarter.RQ, 2019);
+        system.addStudent("James", "Brown", StudentType.UNDERGRAD, StudentProgram.MSCS, Quarter.RQ, 2018);
     }
 
     private static void populateSystem(RegistrationSystem system) {

@@ -59,13 +59,18 @@ public class Student extends Person {
      *
      * @param firstName   The first name of the student
      * @param lastName    The last name of the student
+     *
+     *
      */
-    public Student(String firstName, String lastName) {
-
+    public Student(String firstName, String lastName, StudentType type,
+                   StudentProgram program, Quarter quarter, int year) {
     	super(firstName, lastName);
         this.email = firstName.toLowerCase() + lastName.toLowerCase() +
             "@seattleu.edu";
-        // TODO: implement Student constructor
+        this.type = type;
+        this.program = program;
+        this.quarter = quarter;
+        this.year = year;
     }
 
 // QUESTION: CAN THIS CODE BE REUSED BETWEEN Student.java and Faculty.java?
@@ -75,20 +80,24 @@ public class Student extends Person {
         ", SUID=" + suid +
         ", Email=" + email +
         ", Status=" + status +
-        "\r";
+        ", Type=" + type +
+        ", Program=" + program +
+        ", Term=" + quarter + " " + year + "\r";
     }
 
     private String email;
-// private PersonStatus status;
-// private StudentType type;
-// private StudentProgram program;
-// private StudentYear year;
-// private Quarter startTerm;
+    private StudentType type;
+    private StudentProgram program;
+// TEMPORARY FIELD
+private Quarter quarter;
+private int year;
+// FINAL SOLUTION
+    // private Quarter startTerm;
+    // private StudentYear year;
+
 // private Faculty advisor;
 
     // TODO: add Student fields
-    // - student type (see StudentType)
-    // - student program (see StudentProgram)
     // - student year (see StudentYear; only if undergrad––default to freshman)
     // - start term (see Quarter)
     // - faculty advisor
