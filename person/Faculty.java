@@ -44,10 +44,10 @@ public class Faculty extends Person {
 // QUESTION: CAN THIS CODE BE REUSED BETWEEN Student.java and Faculty.java?
     @Override
     public String toString() {
-        return "Faculty: Name=" + firstName + " " + lastName +
-        ", SUID=" + suid +
+        return "Faculty: Name=" + getFirstName() + " " + getLastName() +
+        ", SUID=" + getSuId() +
 //        ", Email=" + email +
-//        ", Status=" + status +
+        ", Status=" + getStatus() +
         "\r";
     }
 

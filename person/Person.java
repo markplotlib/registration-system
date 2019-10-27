@@ -1,7 +1,6 @@
 package person;
 
 import enums.*;
-import system.RegistrationSystem;
 
 /**
  * <p>The <strong>Person</strong> class holds information about a person
@@ -49,8 +48,57 @@ public class Person {
         this.status = status;
     }
 
-    protected String firstName;
-    protected String lastName;
-    protected int suid;
-    protected PersonStatus status;
+    /**
+	 * @return the firstName
+	 */
+	public String getFirstName() {
+		return firstName;
+	}
+
+	/**
+	 * @param firstName the firstName to set
+	 */
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	/**
+	 * @return the lastName
+	 */
+	public String getLastName() {
+		return lastName;
+	}
+
+	/**
+	 * @param lastName the lastName to set
+	 */
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	/**
+	 * @return the suid
+	 */
+	public int getSuId() {
+		return suid;
+	}
+
+	/**
+	 * @param suid the suid to set
+	 */
+	public void setSuid(int suid) {
+		this.suid = suid;
+	}
+
+	/**
+	 * @return the status
+	 */
+	public PersonStatus getStatus() {
+		return status;
+	}
+
+    private String firstName;
+	private String lastName;
+    private int suid;
+    private PersonStatus status;
 }
