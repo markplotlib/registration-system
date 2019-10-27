@@ -63,6 +63,8 @@ public class Student extends Person {
     public Student(String firstName, String lastName) {
 
     	super(firstName, lastName);
+        this.email = firstName.toLowerCase() + lastName.toLowerCase() +
+            "@seattleu.edu";
         // TODO: implement Student constructor
     }
 
@@ -72,10 +74,11 @@ public class Student extends Person {
         return "Student: Name=" + firstName + " " + lastName +
         ", SUID=" + suid +
         ", Email=" + email +
-        ", Status=" + status + 
+        ", Status=" + status +
         "\r";
     }
 
+    private String email;
 // private PersonStatus status;
 // private StudentType type;
 // private StudentProgram program;

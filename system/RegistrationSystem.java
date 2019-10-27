@@ -52,13 +52,13 @@ public class RegistrationSystem {
 /**
  * TEMPORARY CONSTRUCTOR CALL
  */
-public void addFaculty(String firstName, String lastName, RegistrationSystem system) throws DuplicatePersonException {
-	facultyList.add(new Faculty(firstName, lastName));
+public void addFaculty(String firstName, String lastName, String email) throws DuplicatePersonException {
+	facultyList.add(new Faculty(firstName, lastName, email));
 }
 /**
  * TEMPORARY CONSTRUCTOR CALL
  */
-public void addStudent(String firstName, String lastName, RegistrationSystem system) throws DuplicatePersonException {
+public void addStudent(String firstName, String lastName) throws DuplicatePersonException {
 	studentList.add(new Student(firstName, lastName));
 }
 

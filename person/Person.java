@@ -37,8 +37,6 @@ public class Person {
         this.firstName = firstName;
         this.lastName = lastName;
         this.suid = generateSuId();
-        this.email = firstName.toLowerCase() + lastName.toLowerCase() +
-            "@seattleu.edu";
         // default status for new people: ACTIVE
         this.status = PersonStatus.ACTIVE;
     }
@@ -52,7 +50,7 @@ public class Person {
     }
 
     /**
-     * 
+     *
      * @param status
      */
     public void setStatus(PersonStatus status) {
@@ -66,5 +64,4 @@ public class Person {
     protected String lastName;
     protected int suid;
     protected PersonStatus status;
-    protected String email;
 }

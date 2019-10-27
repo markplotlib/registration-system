@@ -34,9 +34,10 @@ public class Faculty extends Person {
      * @param firstName   The first name of the faculty
      * @param lastName    The last name of the faculty
      */
-    public Faculty(String firstName, String lastName) {
+    public Faculty(String firstName, String lastName, String email) {
 
         super(firstName, lastName);
+        this.email = email;
         // TODO: implement Faculty constructor
     }
 
@@ -50,6 +51,7 @@ public class Faculty extends Person {
         "\r";
     }
 
+    private String email;
 // private PersonStatus status;
 // private FacultyType type;
 // private Building office;
