@@ -52,7 +52,7 @@ public class Section {
 // this.bldg = bldg;
 // this.room = room;
     }
-
+    
     // private Faculty instructor;
 	@Override
 	public String toString() {

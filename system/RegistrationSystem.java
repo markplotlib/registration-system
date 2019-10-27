@@ -154,7 +154,11 @@ public class RegistrationSystem {
                             throws CourseNotFoundException, PersonNotFoundException, DuplicateSectionException {
 
         // TODO: implement addSection method
-//        sectionList.add(new Section());
+        Course course = new Course(code, courseNum, null, room);
+
+        Faculty faculty = new Faculty(firstName, lastName);
+
+        sectionList.add(new Section(course, sectionNum, faculty, quarter, year, cap, bldg, room));
     }
 
     /**
