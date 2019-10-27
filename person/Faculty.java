@@ -33,11 +33,15 @@ public class Faculty extends Person {
      *
      * @param firstName   The first name of the faculty
      * @param lastName    The last name of the faculty
+     * @param type        The type of faculty (see FacultyType enum)
+     * @param email       The school (i.e. SU) email address
      */
-    public Faculty(String firstName, String lastName, String email) {
+    public Faculty(String firstName, String lastName, FacultyType type,
+                   String email) {
 
         super(firstName, lastName);
         this.email = email;
+        this.type = type;
         // TODO: implement Faculty constructor
     }
 
@@ -48,15 +52,14 @@ public class Faculty extends Person {
         ", SUID=" + suid +
         ", Email=" + email +
         ", Status=" + status +
+        ", Type=" + type +
         "\r";
     }
 
     private String email;
-// private PersonStatus status;
-// private FacultyType type;
+    private FacultyType type;
 // private Building office;
 
     // TODO: add Faculty fields
-    // - faculty type (see FacultyType)
     // - office (see Building)
 }
