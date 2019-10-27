@@ -52,14 +52,15 @@ public class Section {
 // this.bldg = bldg;
 // this.room = room;
     }
-    
+
     // private Faculty instructor;
 	@Override
 	public String toString() {
-		return "Section: "
-				+ "Course=" + course + 
-		// "-0" section + 
-		": ";
+		return "Section: " +
+//				+ "Course=" + course +
+		// "-0" + section +
+//		": " +
+		"\r";
 	}
 
     // TODO: add Section fields including:
