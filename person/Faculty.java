@@ -46,8 +46,8 @@ public class Faculty extends Person {
     public String toString() {
         return "Faculty: Name=" + firstName + " " + lastName +
         ", SUID=" + suid +
-        ", Email=" + email +
-        ", Status=" + status +
+//        ", Email=" + email +
+//        ", Status=" + status +
         "\r";
     }
 

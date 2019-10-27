@@ -34,8 +34,8 @@ public class RegistrationSystem {
      */
     public RegistrationSystem() {
 
-        // SU ID number generator
-
+        // SU ID generator: always incrementing for person constructor
+        suIdCounter = 100000;
 
         // initialize collections (of faculty, students,
         // courses, sections)
@@ -181,6 +181,15 @@ public void addStudent(String firstName, String lastName) throws DuplicatePerson
 
     }
 
+    /**
+     *
+     * @return
+     */
+    public int getSuId() {
+        ++suIdCounter;
+        return suIdCounter;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -214,6 +223,8 @@ public void addStudent(String firstName, String lastName) throws DuplicatePerson
     private List<Student> studentList;
 // private List<Course> courseList;
 // private List<Section> sectionList;
+    // SU ID generator
+    private int suIdCounter;
 
     // TODO: add RegistrationSystem collections
     // - subject list

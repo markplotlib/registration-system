@@ -73,8 +73,8 @@ public class Student extends Person {
     public String toString() {
         return "Student: Name=" + firstName + " " + lastName +
         ", SUID=" + suid +
-        ", Email=" + email +
-        ", Status=" + status +
+//        ", Email=" + email +
+//        ", Status=" + status +
         "\r";
     }
 

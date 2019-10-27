@@ -36,17 +36,10 @@ public class Person {
         // TODO: implement Person constructor
         this.firstName = firstName;
         this.lastName = lastName;
-        this.suid = generateSuId();
+        this.suid = 1000000000;
+        // this.suid = getSuId();
         // default status for new people: ACTIVE
         this.status = PersonStatus.ACTIVE;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public int generateSuId() {
-        return ++newSuId;
     }
 
     /**
@@ -56,9 +49,6 @@ public class Person {
     public void setStatus(PersonStatus status) {
         this.status = status;
     }
-
-    // SU ID generator
-    protected int newSuId = 100000;
 
     protected String firstName;
     protected String lastName;
