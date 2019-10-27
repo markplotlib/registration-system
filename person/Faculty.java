@@ -34,12 +34,25 @@ public class Faculty extends Person {
      * @param firstName   The first name of the faculty
      * @param lastName    The last name of the faculty
      */
-    public Faculty(String firstName, String lastName) {
+    public Faculty(String firstName, String lastName, String email) {
 
         super(firstName, lastName);
+        this.email = email;
         // TODO: implement Faculty constructor
     }
 
+// QUESTION: CAN THIS CODE BE REUSED BETWEEN Student.java and Faculty.java?
+    @Override
+    public String toString() {
+        return "Faculty: Name=" + firstName + " " + lastName +
+        ", SUID=" + suid +
+        ", Email=" + email +
+        ", Status=" + status +
+        "\r";
+    }
+
+    private String email;
+// private PersonStatus status;
 // private FacultyType type;
 // private Building office;
 

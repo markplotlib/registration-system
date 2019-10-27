@@ -37,8 +37,6 @@ public class Person {
         this.firstName = firstName;
         this.lastName = lastName;
         this.suid = generateSuId();
-        this.email = firstName.toLowerCase() + lastName.toLowerCase() +
-            "@seattleu.edu";
         // default status for new people: ACTIVE
         this.status = PersonStatus.ACTIVE;
     }
@@ -59,15 +57,6 @@ public class Person {
         this.status = status;
     }
 
-    @Override
-    public String toString() {
-        return "Student: Name=" + firstName + " " + lastName +
-        ", SUID=" + suid +
-        ", Email=" + email +
-        ", Status=" + status +
-        "\r";
-    }
-
     // SU ID generator
     protected int newSuId = 100000;
 
@@ -75,5 +64,4 @@ public class Person {
     protected String lastName;
     protected int suid;
     protected PersonStatus status;
-    protected String email;
 }

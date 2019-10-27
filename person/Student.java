@@ -63,9 +63,23 @@ public class Student extends Person {
     public Student(String firstName, String lastName) {
 
     	super(firstName, lastName);
+        this.email = firstName.toLowerCase() + lastName.toLowerCase() +
+            "@seattleu.edu";
         // TODO: implement Student constructor
     }
 
+// QUESTION: CAN THIS CODE BE REUSED BETWEEN Student.java and Faculty.java?
+    @Override
+    public String toString() {
+        return "Student: Name=" + firstName + " " + lastName +
+        ", SUID=" + suid +
+        ", Email=" + email +
+        ", Status=" + status +
+        "\r";
+    }
+
+    private String email;
+// private PersonStatus status;
 // private StudentType type;
 // private StudentProgram program;
 // private StudentYear year;
