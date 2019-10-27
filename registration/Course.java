@@ -33,12 +33,11 @@ public class Course {
      * @param name      The course name
      * @param creditNum The number of the credits of the course
      */
-     public Course(int courseNum, String name, int creditNum) {
-    // public Course(SubjectCode code, int courseNum, String name,
-    //                 int creditNum) {
+     public Course(SubjectCode code, int courseNum, String name,
+                     int creditNum) {
 
         // TODO: implement Course constructor
-    	// this.code = code;  // <-- this is SubjectCode
+    	this.code = code;
     	this.courseNum = courseNum;
     	this.name = name;
     	this.creditNum = creditNum;
@@ -46,16 +45,15 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course: Name=" +
-        "CPSC-" +    // (this is SubjectCode -- HARDCODED!!!!!!!)
-        courseNum +
+        return "Course: Name=" + code +
+        "-" + courseNum +
         ": " + name +
         ", Credits=" + creditNum +
-// ", Prerequisites=[]"
+// ", Prerequisites=[]" + 
         "\r";
     }
 
-    // private SubjectCode code;
+    private SubjectCode code;
     private int courseNum;
     private String name;
     private int creditNum;

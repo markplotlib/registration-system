@@ -36,17 +36,11 @@ public class Driver {
     }
 
     private static void tempPrototype(RegistrationSystem system) throws DuplicatePersonException, DuplicateCourseException {
-        // system.addFaculty("Roshanak", "Roshandel", FacultyType.ASSOCPROF, Building.ENGR, 508, "roshanak@seattleu.edu");
-        system.addFaculty("Roshanak", "Roshandel");
-        system.addFaculty("James", "Obare");
+         system.addFaculty("Roshanak", "Roshandel", FacultyType.ASSOCPROF, Building.ENGR, 508, "roshanak@seattleu.edu");
 
-        // system.addStudent("Alan", "Turing", StudentType.GRAD, StudentProgram.CERT, Quarter.RQ, 2017);
-        system.addStudent("Peter", "Gabriel");
-        system.addStudent("James", "Brown");
+         system.addStudent("Alan", "Turing", StudentType.GRAD, StudentProgram.CERT, Quarter.RQ, 2017);
 
-        // system.addCourse(SubjectCode.CPSC, 5011, "Object-Oriented Concepts", 3);
-        system.addCourse(5011, "Object-Oriented Concepts", 3);
-        system.addCourse(5021, "Database Systems", 3);
+         system.addCourse(SubjectCode.CPSC, 5011, "Object-Oriented Concepts", 3);
     }
 
     private static void populateSystem(RegistrationSystem system) {

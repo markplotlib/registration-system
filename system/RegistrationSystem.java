@@ -38,29 +38,11 @@ public class RegistrationSystem {
         facultyList = new ArrayList<Faculty>();
         studentList = new ArrayList<Student>();
         courseList = new ArrayList<Course>();
+// sectionList = new ArrayList<Section>();
 
         // TODO: implement WITHIN RegistrationSystem constructor:
-            // initialize sectionList
             // initialize subjectList???
     }
-
-
-/**
- * TEMPORARY CONSTRUCTOR CALLS
- */
-public void addFaculty(String firstName, String lastName) throws DuplicatePersonException {
-	facultyList.add(new Faculty(firstName, lastName));
-}
-public void addStudent(String firstName, String lastName) throws DuplicatePersonException {
-    studentList.add(new Student(firstName, lastName));
-}
-public void addCourse(int num, String name, int creditNum) throws DuplicateCourseException {
-    courseList.add(new Course(num, name, creditNum));
-}
-/**
- * </ TEMPORARY CONSTRUCTOR CALLS>
- */
-
 
 
     /**
@@ -129,7 +111,7 @@ public void addCourse(int num, String name, int creditNum) throws DuplicateCours
     public void addCourse(SubjectCode code, int num, String name,
                             int creditNum) throws DuplicateCourseException {
 
-        // TODO: implement addCourse method
+        courseList.add(new Course(code, num, name, creditNum));
 
     }
 
