@@ -42,9 +42,17 @@ public class Course {
     	this.name = name;
     	this.creditNum = creditNum;
     }
-     
+
     /**
-     * 
+     *
+     * @return
+     */
+    public String getCourse() {
+        return code + "-" + courseNum;
+    }
+
+    /**
+     *
      * @return
      */
     public String getCourseName() {
@@ -54,11 +62,10 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course: Name=" + code +
-        "-" + courseNum +
+        return "Course: Name=" + getCourse() +
         ": " + name +
         ", Credits=" + creditNum +
-// ", Prerequisites=[]" + 
+// ", Prerequisites=[]" +
         "\r";
     }
 
