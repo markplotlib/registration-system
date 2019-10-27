@@ -47,13 +47,9 @@ public class Section {
         this.section = section;
 this.courseName = course.getCourseName() == null ? "___COURSE_NAME_PLACEHOLDER___" : course.getCourseName();
         this.instructor = instructor.getFullName();
-        this.term = "ASDF_9999";
-// this.quarter = quarter;
-// this.year = year
+        this.term = quarter.toString() + " " + year;
         this.cap = cap;
-// this.bldg = bldg;
-// this.room = room;
-        this.location = "BLDG_ROOM##";
+        this.location = bldg.toString() + " " + room;
     }
 
 	@Override
