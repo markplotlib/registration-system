@@ -33,15 +33,11 @@ public class RegistrationSystem {
      *
      */
     public RegistrationSystem() {
-        // initialize collections (of faculty, students,
-        // courses, sections)
+        // initialize collections (of faculty, students, courses, sections)
         facultyList = new ArrayList<Faculty>();
         studentList = new ArrayList<Student>();
         courseList = new ArrayList<Course>();
-// sectionList = new ArrayList<Section>();
-
-        // TODO: implement WITHIN RegistrationSystem constructor:
-            // initialize subjectList???
+        sectionList = new ArrayList<Section>();
     }
 
 
@@ -157,9 +153,8 @@ public class RegistrationSystem {
                             int cap, Building bldg, int room)
                             throws CourseNotFoundException, PersonNotFoundException, DuplicateSectionException {
 
-
         // TODO: implement addSection method
-
+//        sectionList.add(new Section());
     }
 
     /**
@@ -185,9 +180,9 @@ public class RegistrationSystem {
 
         sb.append(generateList("FACULTY", facultyList));
         sb.append(generateList("STUDENT", studentList));
+// TODO: implement printing for subject list!!!!!!!!
         sb.append(generateList("COURSE", courseList));
-        // TODO: implement printing for section list
-        // TODO: implement printing for subject list???
+        sb.append(generateList("SECTION", sectionList));
 
         return sb.toString();
     }
@@ -196,14 +191,10 @@ public class RegistrationSystem {
     private List<Faculty> facultyList;
     private List<Student> studentList;
     private List<Course> courseList;
-// private List<Section> sectionList;
+    private List<Section> sectionList;
 
-    // TODO: add RegistrationSystem collections
-    // - subject list
-    // = course list
-    // - section list
-    //
-    // Note -- there is no list for prerequisites - these should be included
-    // as part of the course list
+// TODO: add RegistrationSystem collections
+// Note -- there is no list for prerequisites - these should be included
+// as part of the course list
 
 }
