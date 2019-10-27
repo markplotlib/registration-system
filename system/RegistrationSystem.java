@@ -55,14 +55,6 @@ public class RegistrationSystem {
 public void addFaculty(String firstName, String lastName, String email) throws DuplicatePersonException {
 	facultyList.add(new Faculty(firstName, lastName, getSuId(), email));
 }
-/**
- * TEMPORARY CONSTRUCTOR CALL
- */
-public void addStudent(String firstName, String lastName) throws DuplicatePersonException {
-	studentList.add(new Student(firstName, lastName, getSuId()));
-}
-
-
 
     /**
      * Add a student to the student list collection.
@@ -80,8 +72,8 @@ public void addStudent(String firstName, String lastName) throws DuplicatePerson
                             Quarter quarter, int year)
                             throws DuplicatePersonException {
 
-        // TODO: implement addStudent method
-
+        studentList.add(new Student(firstName, lastName, getSuId(), type,
+                                    program, quarter, year));
     }
 
     /**
