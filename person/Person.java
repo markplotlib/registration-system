@@ -52,11 +52,20 @@ public class Person {
     }
 
     /**
-     * 
+     *
      * @param status
      */
     public void setStatus(PersonStatus status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Student: Name=" + firstName + " " + lastName +
+        ", SUID=" + suid +
+        ", Email=" + email +
+        ", Status=" + status +
+        "\r";
     }
 
     // SU ID generator
