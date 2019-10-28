@@ -2,7 +2,6 @@ package system;
 
 import registration.Course;
 import registration.Section;
-import person.Person;
 import person.Faculty;
 import person.Student;
 import enums.Building;

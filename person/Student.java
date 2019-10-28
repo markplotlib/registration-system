@@ -1,7 +1,6 @@
 package person;
 
 import enums.*;
-import system.RegistrationSystem;
 
 /**
  * <p>The <strong>Student</strong> class holds information about a student.</p>

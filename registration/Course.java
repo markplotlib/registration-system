@@ -1,7 +1,6 @@
 package registration;
 
 import enums.SubjectCode;
-import java.util.List;
 
 /**
  * <p>The <strong>Course</strong> class holds information about a course.</p>
