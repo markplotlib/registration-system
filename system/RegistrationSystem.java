@@ -36,7 +36,8 @@ public class RegistrationSystem {
      */
     public RegistrationSystem() {
 
-        // SU ID generator: always incrementing for person constructor
+        // SU ID generator: always incrementing a new SU ID
+        // for each newly constructed person
         suIdCounter = 100000;
 
         // initialize collections
@@ -45,11 +46,6 @@ public class RegistrationSystem {
         subjectMap = new HashMap<String, SubjectCode>();
         courseList = new ArrayList<Course>();
         sectionList = new ArrayList<Section>();
-
-        // TODO: implement WITHIN RegistrationSystem constructor:
-            // initialize courseList
-            // initialize sectionList
-
     }
 
 
@@ -139,7 +135,8 @@ public class RegistrationSystem {
                             throws CourseNotFoundException {
 
         // TODO: implement addPrerequisite method
-
+//        courseList
+        // code, num, prereqCode, prereqNum
     }
 
     /**
@@ -226,6 +223,7 @@ public class RegistrationSystem {
         return suIdCounter;
     }
 
+    // Registration System collections
     private List<Faculty> facultyList;
     private List<Student> studentList;
     private Map<String, SubjectCode> subjectMap;
@@ -233,9 +231,5 @@ public class RegistrationSystem {
     private List<Section> sectionList;
     // SU ID generator
     private int suIdCounter;
-
-// TODO: add RegistrationSystem collections
-// Note -- there is no list for prerequisites - these should be included
-// as part of the course list
 
 }

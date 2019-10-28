@@ -1,6 +1,10 @@
 package registration;
 
 import enums.SubjectCode;
+import exception.CourseNotFoundException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>The <strong>Course</strong> class holds information about a course.</p>
@@ -35,11 +39,16 @@ public class Course {
      public Course(SubjectCode code, int courseNum, String name,
                      int creditNum) {
 
-        // TODO: implement Course constructor
     	this.code = code;
     	this.courseNum = courseNum;
     	this.name = name;
     	this.creditNum = creditNum;
+        this.prerequisites = new ArrayList<>();
+    }
+
+    public void addPrerequisite(SubjectCode prereqCode, int prereqNum)
+                                throws CourseNotFoundException {
+        // prerequisites;
     }
 
     /**
@@ -58,24 +67,37 @@ public class Course {
         return name;
     }
 
-
     @Override
     public String toString() {
         return "Course: Name=" + getCourseSubjectCodeNum() +
         ": " + name +
         ", Credits=" + creditNum +
-// ", Prerequisites=[]" +
+// TODO
+// ___COURSE_NAME_PLACEHOLDER___
+        ", Prerequisites=[" + "ASDF" + "-" + 1234 + "]" +
         "\r";
+    }
+
+    /**
+     *
+     * @param other
+     * @return
+     */
+    public boolean equals(Course other) {
+    	return (this.courseNum == other.courseNum);
+    }
+
+    private String getPrerequisites() {
+        StringBuilder sb = new StringBuilder();
+        for (int prereq = 0; prereq < prerequisites.size(); prereq++) {
+
+        }
+        return "ASDF" + "-" + 1234;
     }
 
     private SubjectCode code;
     private int courseNum;
     private String name;
     private int creditNum;
-    // private List prerequisites;
-
-    // TODO: add Course fields
-    // - subject code (see SubjectCode)
-    // - a collection of prerequisite course(s)
-
+    private List<Course> prerequisites;
 }
