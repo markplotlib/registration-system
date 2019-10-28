@@ -1,6 +1,7 @@
 package person;
 
 import enums.*;
+import system.RegistrationSystem;
 
 /**
  * <p>The <strong>Faculty</strong> class holds information about a faculty member.</p>
@@ -32,29 +33,37 @@ public class Faculty extends Person {
      *
      * @param firstName   The first name of the faculty
      * @param lastName    The last name of the faculty
-     */
-    public Faculty(String firstName, String lastName) {
+     * @param type        The type of faculty (see FacultyType enum)
+     * @param email       The school (i.e. SU) email address
+     * @param bldg
+     * @param room
 
-    	super(firstName, lastName);
-        // TODO: implement Faculty constructor
+ office: includes building (i.e. ENGR) and room number (i.e 504)
+
+     */
+    public Faculty(String firstName, String lastName, int suid,
+                    FacultyType type, Building bldg, int room, String email) {
+
+        super(firstName, lastName, suid);
+        this.email = email;
+        this.type = type;
+        this.office = bldg.toString() + " " + room;
     }
 
     @Override
     public String toString() {
-//      return "Student: Name=" + super.getFullName() + "\r";
-        return "Student: Name=" + firstName + " " + lastName + "\r";
-}
+        return "Faculty: Name=" + getFirstName() + " " + getLastName() +
+        ", SUID=" + getSuId() +
+        ", Email=" + email +
+        ", Status=" + getStatus() +
+        ", Type=" + type +
+        ", Office=" + office + "\r";
+    }
 
-// private int suid;
-// private PersonStatus status;
-// private FacultyType type;
-// private Building office;
-// private String email;
-
-    // TODO: add Faculty fields
-    // - SUID
-    // - status (see PersonStatus)
-    // - faculty type (see FacultyType)
-    // - office (see Building)
-    // - email
+//////////////////////////////////////////////////////////////////////////////
+// TODO:
+// document these
+    private String email;
+    private FacultyType type;
+    private String office;
 }

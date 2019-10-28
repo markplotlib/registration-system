@@ -36,6 +36,10 @@ public class RegistrationSystem {
      *
      */
     public RegistrationSystem() {
+
+        // SU ID generator: always incrementing for person constructor
+        suIdCounter = 100000;
+
         // initialize collections (of faculty, students,
         // courses, sections)
         facultyList = new ArrayList<Faculty>();
@@ -47,21 +51,6 @@ public class RegistrationSystem {
             // initialize sectionList
 
     }
-
-
-/**
- * TEMPORARY CONSTRUCTOR CALL
- */
-public void addFaculty(String firstName, String lastName) throws DuplicatePersonException {
-	facultyList.add(new Faculty(firstName, lastName));
-}
-/**
- * TEMPORARY CONSTRUCTOR CALL
- */
-public void addStudent(String firstName, String lastName) throws DuplicatePersonException {
-	studentList.add(new Student(firstName, lastName));
-}
-
 
 
     /**
@@ -80,8 +69,8 @@ public void addStudent(String firstName, String lastName) throws DuplicatePerson
                             Quarter quarter, int year)
                             throws DuplicatePersonException {
 
-        // TODO: implement addStudent method
-
+        studentList.add(new Student(firstName, lastName, getSuId(), type,
+                                    program, quarter, year));
     }
 
     /**
@@ -95,11 +84,10 @@ public void addStudent(String firstName, String lastName) throws DuplicatePerson
      * @throws DuplicatePersonException The person is already in the system
      */
     public void addFaculty(String firstName, String lastName,
-                            FacultyType type, Building bldg, int room, String email)
-                            throws DuplicatePersonException {
-
-        // TODO: implement addFaculty method
-
+                            FacultyType type, Building bldg, int room,
+                            String email) throws DuplicatePersonException {
+        facultyList.add(new Faculty(firstName, lastName, getSuId(), type,
+                        bldg, room, email));
     }
 
     /**
@@ -207,7 +195,7 @@ public void addStudent(String firstName, String lastName) throws DuplicatePerson
         for (int entry = 0; entry < list.size(); entry++) {
             sb.append(list.get(entry).toString());
         }
-// sb.append("\r\r");
+        sb.append("\r\r");
         return sb.toString();
     }
 
@@ -220,22 +208,45 @@ public void addStudent(String firstName, String lastName) throws DuplicatePerson
 
         // list header
         sb.append("-- " + mapName + " LIST --\r");
-        
+
         for (Entry<?, ?> entry : map.entrySet()) {
-            sb.append("Subject: " + entry.getKey() + 
+            sb.append("Subject: " + entry.getKey() +
             		  " (" + entry.getValue() + ")\r");
         }
-        
+
         sb.append("\r\r");
         return sb.toString();
     }
 
+    /**
+     *
+     * @return
+     */
+    private String generateList(String listName, List<?> list) {
+        StringBuilder sb = new StringBuilder();
+
+        // list header
+        sb.append("-- " + listName + " LIST --\r");
+
+        for (int entry = 0; entry < list.size(); entry++) {
+            sb.append(list.get(entry).toString());
+        }
+// sb.append("\r\r");
+        return sb.toString();
+    }
+
+    private int getSuId() {
+        ++suIdCounter;
+        return suIdCounter;
+    }
 
     private List<Faculty> facultyList;
     private List<Student> studentList;
     private Map<String, SubjectCode> subjectMap;
 // private List<Course> courseList;
 // private List<Section> sectionList;
+    // SU ID generator
+    private int suIdCounter;
 
     // TODO: add RegistrationSystem collections
     // = course list

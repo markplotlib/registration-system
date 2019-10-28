@@ -1,6 +1,7 @@
 package person;
 
 import enums.*;
+import system.RegistrationSystem;
 
 /**
  * <p>The <strong>Student</strong> class holds information about a student.</p>
@@ -58,36 +59,48 @@ public class Student extends Person {
      *
      * @param firstName   The first name of the student
      * @param lastName    The last name of the student
+     *
+     *
      */
-    public Student(String firstName, String lastName) {
+    public Student(String firstName, String lastName, int suid,
+                    StudentType type, StudentProgram program,
+                    Quarter quarter, int year) {
 
-    	super(firstName, lastName);
-        // TODO: implement Student constructor
+    	super(firstName, lastName, suid);
+        this.email = firstName.toLowerCase() + lastName.toLowerCase() +
+            "@seattleu.edu";
+        this.type = type;
+        this.program = program;
+        this.quarter = quarter;
+        this.year = year;
     }
 
     @Override
     public String toString() {
-//      return "Student: Name=" + super.getFullName() + "\r";
-        return "Student: Name=" + firstName + " " + lastName + "\r";
-}
+        return "Student: Name=" + getFirstName() + " " + getLastName() +
+        ", SUID=" + getSuId() +
+        ", Email=" + email +
+        ", Status=" + getStatus() +
+        ", Type=" + type +
+        ", Program=" + program +
+        ", Term=" + quarter + " " + year + "\r";
+    }
 
-// private int suid;
-// private PersonStatus status;
-// private StudentType type;
-// private StudentProgram program;
-// private StudentYear year;
-// private Quarter startTerm;
+    private String email;
+    private StudentType type;
+    private StudentProgram program;
+// TEMPORARY FIELD
+private Quarter quarter;
+private int year;
+// FINAL SOLUTION
+    // private Quarter startTerm;
+    // private StudentYear year;
+
 // private Faculty advisor;
-// private String email;
 
     // TODO: add Student fields
-    // - SUID
-    // - status (see PersonStatus)
-    // - student type (see StudentType)
-    // - student program (see StudentProgram)
     // - student year (see StudentYear; only if undergrad––default to freshman)
     // - start term (see Quarter)
     // - faculty advisor
-    // - email
 
 }

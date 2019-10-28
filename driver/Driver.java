@@ -37,14 +37,12 @@ public class Driver {
 
     private static void tempPrototype(RegistrationSystem system) throws DuplicatePersonException, DuplicateSubjectException {
         // system.addFaculty("Roshanak", "Roshandel", FacultyType.ASSOCPROF, Building.ENGR, 508, "roshanak@seattleu.edu");
-        system.addFaculty("Roshanak", "Roshandel");
-        system.addFaculty("James", "Obare");
+        system.addFaculty("Roshanak", "Roshandel", FacultyType.ASSOCPROF, Building.ENGR, 508, "obarej@seattleu.edu");
+        system.addFaculty("James", "Obare", FacultyType.INSTRUCT, Building.LEML, 122, "roshanak@seattleu.edu");
 
-        // system.addStudent("Alan", "Turing", StudentType.GRAD, StudentProgram.CERT, Quarter.RQ, 2017);
-        system.addStudent("Peter", "Gabriel");
-        system.addStudent("James", "Brown");
-
-        populateSubjects(system);
+        system.addStudent("Alan", "Turing", StudentType.GRAD, StudentProgram.CERT, Quarter.RQ, 2017);
+        system.addStudent("Peter", "Gabriel", StudentType.UNDERGRAD, StudentProgram.CERT, Quarter.RQ, 2019);
+        system.addStudent("James", "Brown", StudentType.UNDERGRAD, StudentProgram.MSCS, Quarter.RQ, 2018);
     }
 
     private static void populateSystem(RegistrationSystem system) {

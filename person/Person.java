@@ -30,21 +30,75 @@ public class Person {
      * @param firstName   The first name
      * @param lastName    The last name
      */
-    public Person(String firstName, String lastName) {
+    public Person(String firstName, String lastName, int suid) {
 
         // TODO: implement Person constructor
         this.firstName = firstName;
         this.lastName = lastName;
+        this.suid = suid;
+        // default status for new people: ACTIVE
+        this.status = PersonStatus.ACTIVE;
     }
 
-    protected String firstName;
-    protected String lastName;
-// private int suid;
-// private PersonStatus status;
-// private String email;
+    /**
+     *
+     * @param status
+     */
+    public void setStatus(PersonStatus status) {
+        this.status = status;
+    }
 
-    // TODO: add person fields
-    // - SUID
-    // - status (see PersonStatus)
-    // - email
+    /**
+	 * @return the firstName
+	 */
+	public String getFirstName() {
+		return firstName;
+	}
+
+	/**
+	 * @param firstName the firstName to set
+	 */
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	/**
+	 * @return the lastName
+	 */
+	public String getLastName() {
+		return lastName;
+	}
+
+	/**
+	 * @param lastName the lastName to set
+	 */
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	/**
+	 * @return the suid
+	 */
+	public int getSuId() {
+		return suid;
+	}
+
+	/**
+	 * @param suid the suid to set
+	 */
+	public void setSuid(int suid) {
+		this.suid = suid;
+	}
+
+	/**
+	 * @return the status
+	 */
+	public PersonStatus getStatus() {
+		return status;
+	}
+
+    private String firstName;
+	private String lastName;
+    private int suid;
+    private PersonStatus status;
 }
