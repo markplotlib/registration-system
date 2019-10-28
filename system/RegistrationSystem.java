@@ -221,6 +221,10 @@ public class RegistrationSystem {
         return sb.toString();
     }
 
+    /**
+     * Generate an SU ID for each newly created person
+     * @return  unique SU ID
+     */
     private int generateSuId() {
         ++suIdCounter;
         return suIdCounter;

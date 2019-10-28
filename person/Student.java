@@ -82,8 +82,17 @@ public class Student extends Person {
         this.program = program;
         this.startTerm = quarter + " " + year;
         this.studentYear = computeStudentYear(year);
+
+        
+        this.advisor = null;
     }
 
+    /**
+     * Assign a faculty advisor to a student
+     */
+    public void assignAdvisor(Faculty faculty) {
+        advisor = null;
+    }
 
     @Override
     public String toString() {
@@ -102,7 +111,7 @@ public class Student extends Person {
         ", Type=" + type +
         ", Program=" + program +
         ", Term=" + startTerm +
-        // ", Term=" + startTerm +
+        ", Advisor=" + advisor.getFullName() +
         undergradYear + "\r";
     }
 
@@ -118,25 +127,25 @@ public class Student extends Person {
      * @return  student year, if undergrad
      */
     private StudentYear computeStudentYear(int year) {
-        StudentYear ret = null;
+        StudentYear yr = null;
         if (type.equals(StudentType.UNDERGRAD)) {
             int yearsDone = CURRENT_TERM_START_YEAR - year;
             switch(yearsDone) {
                 case 0:
-                    ret = StudentYear.FRESHMAN;
+                    yr = StudentYear.FRESHMAN;
                     break;
                 case 1:
-                    ret = StudentYear.SOPHOMORE;
+                    yr = StudentYear.SOPHOMORE;
                     break;
                 case 2:
-                    ret = StudentYear.JUNIOR;
+                    yr = StudentYear.JUNIOR;
                     break;
                 case 3:
-                    ret = StudentYear.SENIOR;
+                    yr = StudentYear.SENIOR;
                     break;
             }
         }
-        return ret;
+        return yr;
     }
 
     public final int CURRENT_TERM_START_YEAR = 2019;
@@ -146,12 +155,5 @@ public class Student extends Person {
     private StudentProgram program;
     private String startTerm;
     private StudentYear studentYear;
-
-// private Faculty advisor;
-
-    // TODO: add Student fields
-    // - student year (see StudentYear; only if undergrad––default to freshman)
-    // - start term (see Quarter)
-    // - faculty advisor
-
+    private Faculty advisor;
 }
