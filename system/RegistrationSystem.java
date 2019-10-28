@@ -40,11 +40,12 @@ public class RegistrationSystem {
         // SU ID generator: always incrementing for person constructor
         suIdCounter = 100000;
 
-        // initialize collections (of faculty, students,
-        // courses, sections)
+        // initialize collections
         facultyList = new ArrayList<Faculty>();
         studentList = new ArrayList<Student>();
         subjectMap = new HashMap<String, SubjectCode>();
+        courseList = new ArrayList<Course>();
+        sectionList = new ArrayList<Section>();
 
         // TODO: implement WITHIN RegistrationSystem constructor:
             // initialize courseList
@@ -118,7 +119,7 @@ public class RegistrationSystem {
     public void addCourse(SubjectCode code, int num, String name,
                             int creditNum) throws DuplicateCourseException {
 
-        // TODO: implement addCourse method
+        courseList.add(new Course(code, num, name, creditNum));
 
     }
 
@@ -164,9 +165,12 @@ public class RegistrationSystem {
                             int cap, Building bldg, int room)
                             throws CourseNotFoundException, PersonNotFoundException, DuplicateSectionException {
 
-
         // TODO: implement addSection method
+        Course course = new Course(code, courseNum, null, room);
 
+        Faculty faculty = new Faculty(firstName, lastName);
+
+        sectionList.add(new Section(course, sectionNum, faculty, quarter, year, cap, bldg, room));
     }
 
     @Override
@@ -176,8 +180,8 @@ public class RegistrationSystem {
         sb.append(generateStringFromList("FACULTY", facultyList));
         sb.append(generateStringFromList("STUDENT", studentList));
         sb.append(generateStringFromMap("SUBJECT", subjectMap));
-        // TODO: implement printing for course list
-        // TODO: implement printing for section list
+        sb.append(generateStringFromList("COURSE", courseList));
+        sb.append(generateStringFromList("SECTION", sectionList));
 
         return sb.toString();
     }
@@ -218,23 +222,6 @@ public class RegistrationSystem {
         return sb.toString();
     }
 
-    /**
-     *
-     * @return
-     */
-    private String generateList(String listName, List<?> list) {
-        StringBuilder sb = new StringBuilder();
-
-        // list header
-        sb.append("-- " + listName + " LIST --\r");
-
-        for (int entry = 0; entry < list.size(); entry++) {
-            sb.append(list.get(entry).toString());
-        }
-// sb.append("\r\r");
-        return sb.toString();
-    }
-
     private int getSuId() {
         ++suIdCounter;
         return suIdCounter;
@@ -243,16 +230,13 @@ public class RegistrationSystem {
     private List<Faculty> facultyList;
     private List<Student> studentList;
     private Map<String, SubjectCode> subjectMap;
-// private List<Course> courseList;
-// private List<Section> sectionList;
+    private List<Course> courseList;
+    private List<Section> sectionList;
     // SU ID generator
     private int suIdCounter;
 
-    // TODO: add RegistrationSystem collections
-    // = course list
-    // - section list
-    //
-    // Note -- there is no list for prerequisites - these should be included
-    // as part of the course list
+// TODO: add RegistrationSystem collections
+// Note -- there is no list for prerequisites - these should be included
+// as part of the course list
 
 }

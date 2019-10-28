@@ -23,36 +23,66 @@ import person.Faculty;
  * <li><strong>capacity:</strong> 30</li>
  * <li><strong>location (building/room):</strong> LEML 122</li>
  * </ul>
- * 
- * @author 
+ *
+ * @author
  */
-public class Section {    
-    
+public class Section {
+
     /**
-     * 
+     *
      * @param course     The course associated with the section
      * @param section    The section number for the course
      * @param instructor The faculty instructor teaching the course
-     * @param quarter    The quarter that the course section is held 
+     * @param quarter    The quarter that the course section is held
      * @param year       The year that the course section is held
      * @param cap        The capacity of the course section
      * @param bldg       The building that the course section is held
      * @param room       The room that the course section is held
      */
-    public Section(Course course, int section, Faculty instructor, Quarter quarter, 
+    public Section(Course course, int section, Faculty instructor, Quarter quarter,
                     int year, int cap, Building bldg, int room) {
-        
+
         // TODO: implement Section constructor
-        
+        this.courseSubjectCodeNum = course.getCourseSubjectCodeNum();
+        this.section = section;
+this.courseName = course.getCourseName() == null ? "___COURSE_NAME_PLACEHOLDER___" : course.getCourseName();
+        this.instructor = instructor.getFullName();
+        this.term = quarter.toString() + " " + year;
+        this.cap = cap;
+        this.location = bldg.toString() + " " + room;
     }
 
-    
+	@Override
+	public String toString() {
+		return "Section: Course=" + courseSubjectCodeNum +
+		"-0" + section +
+		": " + courseName +
+        ", Faculty=" + instructor +
+        ", Term=" + term +
+        ", Capacity=" + cap +
+        ", Room=" + location +
+		"\r";
+	}
+
     // TODO: add Section fields including:
-    // - course
-    // - section
-    // - instructor
-    // - term (see Quarter)
-    // - capacity
-    // - location (see Building)
+	private String courseName;
+	private String courseSubjectCodeNum;
+    private int section;
+    private String instructor;
+    private String term;
+    private int cap;
+    private String location;
+
+// hardcode
+
+// - term (see Quarter)
+//     private Quarter quarter;
+//     private int year;
+//
+//
+// // - location (see Building)
+//     private Building bldg;
+//     private int room;
+
 
 }

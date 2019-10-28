@@ -42,6 +42,16 @@ public class Person {
 
     /**
      *
+     * @param firstName   The first name
+     * @param lastName    The last name
+     */
+    public Person(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    /**
+     *
      * @param status
      */
     public void setStatus(PersonStatus status) {
@@ -96,6 +106,13 @@ public class Person {
 	public PersonStatus getStatus() {
 		return status;
 	}
+
+    /**
+	 * @return the status
+	 */
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
 
     private String firstName;
 	private String lastName;

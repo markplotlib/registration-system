@@ -38,6 +38,7 @@ public class Faculty extends Person {
      * @param bldg
      * @param room
 
+TODO:
  office: includes building (i.e. ENGR) and room number (i.e 504)
 
      */
@@ -48,6 +49,15 @@ public class Faculty extends Person {
         this.email = email;
         this.type = type;
         this.office = bldg.toString() + " " + room;
+    }
+
+    /**
+     *
+     * @param firstName   The first name
+     * @param lastName    The last name
+     */
+    public Faculty(String firstName, String lastName) {
+        super(firstName, lastName);
     }
 
     @Override

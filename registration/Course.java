@@ -33,8 +33,8 @@ public class Course {
      * @param name      The course name
      * @param creditNum The number of the credits of the course
      */
-    public Course(SubjectCode code, int courseNum, String name,
-                    int creditNum) {
+     public Course(SubjectCode code, int courseNum, String name,
+                     int creditNum) {
 
         // TODO: implement Course constructor
     	this.code = code;
@@ -43,17 +43,40 @@ public class Course {
     	this.creditNum = creditNum;
     }
 
+    /**
+     *
+     * @return
+     */
+    public String getCourseSubjectCodeNum() {
+        return code + "-" + courseNum;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getCourseName() {
+        return name;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Course: Name=" + getCourseSubjectCodeNum() +
+        ": " + name +
+        ", Credits=" + creditNum +
+// ", Prerequisites=[]" +
+        "\r";
+    }
+
     private SubjectCode code;
     private int courseNum;
     private String name;
     private int creditNum;
-    private List prerequisites;
+    // private List prerequisites;
 
     // TODO: add Course fields
     // - subject code (see SubjectCode)
-    // - course number
-    // - course name
-    // - credit number
     // - a collection of prerequisite course(s)
 
 }
