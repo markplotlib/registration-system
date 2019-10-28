@@ -103,7 +103,6 @@ public class RegistrationSystem {
     public void addSubject(SubjectCode code, String desc)
                             throws DuplicateSubjectException {
 
-        // TODO: implement addSubject method
         subjectMap.put(desc, code);
     }
 
@@ -136,19 +135,28 @@ public class RegistrationSystem {
      * @throws CourseNotFoundException The course was not found in the system
      */
     public void addPrerequisite(SubjectCode code, int num,
-                            SubjectCode prereqCode, int prereqNum)
-                            throws CourseNotFoundException {
+                                SubjectCode prereqCode, int prereqNum)
+                                throws CourseNotFoundException {
 
-        // TODO: implement addPrerequisite method
 		Course course = new Course(code, num);
-		if (!courseList.contains(course))
-            throw new CourseNotFoundException();
-        else {
-        	for (int i = 0; i < courseList.size(); i++) {
-                if (courseList.get(i).equals(course))
-                    courseList.get(i).addPrerequisite(prereqCode, prereqNum);
+
+        boolean courseFound;
+        for (int courseNum = 0; courseNum < courseList.size(); courseNum++) {
+            Course c = courseList.get(courseNum);
+            if (c.equals(course)) {
+                c.addPrereq(prereqCode, prereqNum);
             }
         }
+
+		// if (!courseList.contains(course)) {
+        //     throw new CourseNotFoundException();
+        // }
+        // else {
+        // 	for (int i = 0; i < courseList.size(); i++) {
+        //         if (courseList.get(i).equals(course))
+        //             courseList.get(i).addPrereq(prereqCode, prereqNum);
+        //     }
+        // }
     }
 
     /**
@@ -173,12 +181,18 @@ public class RegistrationSystem {
                             int cap, Building bldg, int room)
                             throws CourseNotFoundException, PersonNotFoundException, DuplicateSectionException {
 
-        // TODO: implement addSection method
         Course course = new Course(code, courseNum, null, room);
+        for (int i = 0; i < courseList.size(); i++) {
+            Course c = courseList.get(i);
+            if (c.equals(course)) {
+                course.setCourseName(c.getCourseName());
+            }
+        }
 
         Faculty faculty = new Faculty(firstName, lastName);
 
-        sectionList.add(new Section(course, sectionNum, faculty, quarter, year, cap, bldg, room));
+        sectionList.add(new Section(course, sectionNum, faculty, quarter, year,
+                                    cap, bldg, room));
     }
 
     @Override

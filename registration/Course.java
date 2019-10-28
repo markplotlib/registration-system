@@ -30,7 +30,7 @@ import java.util.List;
 public class Course {
 
     /**
-     *
+     * Constructor for creating a new course
      * @param code      The subject code of the course
      * @param courseNum The course number of the course
      * @param name      The course name
@@ -47,7 +47,7 @@ public class Course {
     }
 
     /**
-     *
+     * Constructor for a course
      * @param code      The subject code of the course
      * @param courseNum The course number of the course
      */
@@ -56,27 +56,40 @@ public class Course {
     	this.courseNum = courseNum;
     }
 
-    public void addPrerequisite(SubjectCode prereqCode, int prereqNum)
+    /**
+     * Adds a prereq to a course
+     * @param prereqCode      The subject code of the prereq
+     * @param prereqNum       The course number of the prereq
+     */
+    public void addPrereq(SubjectCode prereqCode, int prereqNum)
                                 throws CourseNotFoundException {
-    	
+
     	Course course = new Course(prereqCode, prereqNum);
         prerequisites.add(course);
     }
 
     /**
-     *
-     * @return
+     * Gets course subject code and course number
+     * @return      subject code and course number
      */
     public String getCourseSubjectCodeNum() {
         return code + "-" + courseNum;
     }
 
     /**
-     *
-     * @return
+     * Gets course name
+     * @return  course name
      */
     public String getCourseName() {
         return name;
+    }
+
+    /**
+     * Sets course name
+     * @param  course name
+     */
+    public void setCourseName(String name) {
+        this.name = name;
     }
 
     @Override
@@ -98,8 +111,10 @@ public class Course {
 
     private String getAllPrerequisites() {
         StringBuilder sb = new StringBuilder();
-        for (int prereq = 0; prereq < prerequisites.size(); prereq++) {
-        	sb.append(prerequisites.get(prereq));
+        if (prerequisites != null) {
+            for (int prereq = 0; prereq < prerequisites.size(); prereq++) {
+            	sb.append(prerequisites.get(prereq));
+            }
         }
         return sb.toString();
     }

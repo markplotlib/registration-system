@@ -45,7 +45,7 @@ public class Section {
         // TODO: implement Section constructor
         this.courseSubjectCodeNum = course.getCourseSubjectCodeNum();
         this.section = section;
-this.courseName = course.getCourseName() == null ? "___COURSE_NAME_PLACEHOLDER___" : course.getCourseName();
+        this.courseName = course.getCourseName();
         this.instructor = instructor.getFullName();
         this.term = quarter.toString() + " " + year;
         this.cap = cap;
@@ -64,7 +64,6 @@ this.courseName = course.getCourseName() == null ? "___COURSE_NAME_PLACEHOLDER__
 		"\r";
 	}
 
-    // TODO: add Section fields including:
 	private String courseName;
 	private String courseSubjectCodeNum;
     private int section;
@@ -72,17 +71,4 @@ this.courseName = course.getCourseName() == null ? "___COURSE_NAME_PLACEHOLDER__
     private String term;
     private int cap;
     private String location;
-
-// hardcode
-
-// - term (see Quarter)
-//     private Quarter quarter;
-//     private int year;
-//
-//
-// // - location (see Building)
-//     private Building bldg;
-//     private int room;
-
-
 }
