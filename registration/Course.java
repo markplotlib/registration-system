@@ -46,9 +46,22 @@ public class Course {
         this.prerequisites = new ArrayList<>();
     }
 
+    /**
+     *
+     * @param code      The subject code of the course
+     * @param courseNum The course number of the course
+     */
+    public Course(SubjectCode code, int courseNum) {
+    	this.code = code;
+    	this.courseNum = courseNum;
+    }
+
     public void addPrerequisite(SubjectCode prereqCode, int prereqNum)
                                 throws CourseNotFoundException {
-        // prerequisites;
+//        DON'T make this a list of Courses;
+//      make it a list of pairs < SubjectCode, courseName >
+        prerequisites.add(getCourseSubjectCodeNum() + ": " +
+        				  getCourseName());
     }
 
     /**
@@ -72,10 +85,7 @@ public class Course {
         return "Course: Name=" + getCourseSubjectCodeNum() +
         ": " + name +
         ", Credits=" + creditNum +
-// TODO
-// ___COURSE_NAME_PLACEHOLDER___
-        ", Prerequisites=[" + "ASDF" + "-" + 1234 + "]" +
-        "\r";
+        ", Prerequisites=[" + getAllPrerequisites() + "]" + "\r";
     }
 
     /**
@@ -87,17 +97,17 @@ public class Course {
     	return (this.courseNum == other.courseNum);
     }
 
-    private String getPrerequisites() {
+    private String getAllPrerequisites() {
         StringBuilder sb = new StringBuilder();
         for (int prereq = 0; prereq < prerequisites.size(); prereq++) {
-
+        	sb.append(prerequisites.get(prereq));
         }
-        return "ASDF" + "-" + 1234;
+        return sb.toString();
     }
 
     private SubjectCode code;
     private int courseNum;
     private String name;
     private int creditNum;
-    private List<Course> prerequisites;
+    private List<String> prerequisites;
 }

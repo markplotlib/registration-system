@@ -135,8 +135,15 @@ public class RegistrationSystem {
                             throws CourseNotFoundException {
 
         // TODO: implement addPrerequisite method
-//        courseList
-        // code, num, prereqCode, prereqNum
+		Course course = new Course(code, num);
+		if (!courseList.contains(course))
+            throw new CourseNotFoundException();
+        else {
+        	for (int i = 0; i < courseList.size(); i++) {
+                if (courseList.get(i).equals(course))
+                    courseList.get(i).addPrerequisite(prereqCode, prereqNum);
+            }
+        }
     }
 
     /**
