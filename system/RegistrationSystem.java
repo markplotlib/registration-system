@@ -69,7 +69,7 @@ public class RegistrationSystem {
                             Quarter quarter, int year)
                             throws DuplicatePersonException {
 
-        studentList.add(new Student(firstName, lastName, getSuId(), type,
+        studentList.add(new Student(firstName, lastName, generateSuId(), type,
                                     program, quarter, year));
     }
 
@@ -86,7 +86,7 @@ public class RegistrationSystem {
     public void addFaculty(String firstName, String lastName,
                             FacultyType type, Building bldg, int room,
                             String email) throws DuplicatePersonException {
-        facultyList.add(new Faculty(firstName, lastName, getSuId(), type,
+        facultyList.add(new Faculty(firstName, lastName, generateSuId(), type,
                         bldg, room, email));
     }
 
@@ -221,7 +221,7 @@ public class RegistrationSystem {
         return sb.toString();
     }
 
-    private int getSuId() {
+    private int generateSuId() {
         ++suIdCounter;
         return suIdCounter;
     }

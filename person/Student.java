@@ -60,9 +60,9 @@ public class Student extends Person {
      * @param lastName    The last name of the student
      * @param suid        unique Seattle University identification number
      * @param type        The type of student (see StudentType enum)
-     * @param program     The
-     * @param quarter     The
-     * @param year        The
+     * @param program     assigned program (see StudentProgram enum)
+     * @param quarter     The quarter a student starts (see Quarter enum)
+     * @param year        The year a student starts (integer)
 
 // TODO: generate this in RegistrationSystem, then pass it in
 //         this.email = firstName.toLowerCase() + lastName.toLowerCase() +
@@ -80,19 +80,30 @@ public class Student extends Person {
             "@seattleu.edu";
         this.type = type;
         this.program = program;
-        this.quarter = quarter;
-        this.year = year;
+        this.startTerm = quarter + " " + year;
+        this.studentYear = computeStudentYear(year);
     }
+
 
     @Override
     public String toString() {
+
+        // StudentYear enum: only for undergraduates
+        String undergradYear;
+        if (type.equals(StudentType.UNDERGRAD))
+            undergradYear = ", Year=" + studentYear.toString();
+        else
+            undergradYear = "";
+
         return "Student: Name=" + getFirstName() + " " + getLastName() +
         ", SUID=" + getSuId() +
         ", Email=" + email +
         ", Status=" + getStatus() +
         ", Type=" + type +
         ", Program=" + program +
-        ", Term=" + quarter + " " + year + "\r";
+        ", Term=" + startTerm +
+        // ", Term=" + startTerm +
+        undergradYear + "\r";
     }
 
     /**
@@ -102,15 +113,39 @@ public class Student extends Person {
         this.program = pgrm;
     }
 
+    /**
+     * Calculate student's year, see StudentYear enum
+     * @return  student year, if undergrad
+     */
+    private StudentYear computeStudentYear(int year) {
+        StudentYear ret = null;
+        if (type.equals(StudentType.UNDERGRAD)) {
+            int yearsDone = CURRENT_TERM_START_YEAR - year;
+            switch(yearsDone) {
+                case 0:
+                    ret = StudentYear.FRESHMAN;
+                    break;
+                case 1:
+                    ret = StudentYear.SOPHOMORE;
+                    break;
+                case 2:
+                    ret = StudentYear.JUNIOR;
+                    break;
+                case 3:
+                    ret = StudentYear.SENIOR;
+                    break;
+            }
+        }
+        return ret;
+    }
+
+    public final int CURRENT_TERM_START_YEAR = 2019;
+
     private String email;
     private StudentType type;
     private StudentProgram program;
-// TEMPORARY FIELD
-private Quarter quarter;
-private int year;
-// FINAL SOLUTION
-    // private Quarter startTerm;
-    // private StudentYear year;
+    private String startTerm;
+    private StudentYear studentYear;
 
 // private Faculty advisor;
 
