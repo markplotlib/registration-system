@@ -24,22 +24,19 @@ import enums.*;
  * <li><strong>email:</strong> ohsh@seattleu.edu</li>
  * </ul>
  *
- * @author
+ * @author Mark Chesney
  */
 public class Faculty extends Person {
 
     /**
-     *
+     * Constructor for creating a new faculty member
      * @param firstName   The first name of the faculty
      * @param lastName    The last name of the faculty
+     * @param suid        unique Seattle University identification number
      * @param type        The type of faculty (see FacultyType enum)
+     * @param bldg        The building name
+     * @param room        The room number
      * @param email       The school (i.e. SU) email address
-     * @param bldg
-     * @param room
-
-TODO:
- office: includes building (i.e. ENGR) and room number (i.e 504)
-
      */
     public Faculty(String firstName, String lastName, int suid,
                     FacultyType type, Building bldg, int room, String email) {
@@ -51,7 +48,7 @@ TODO:
     }
 
     /**
-     *
+     * Constructor used to make full name of faculty member
      * @param firstName   The first name
      * @param lastName    The last name
      */
@@ -69,9 +66,7 @@ TODO:
         ", Office=" + office + "\r";
     }
 
-//////////////////////////////////////////////////////////////////////////////
-// TODO:
-// document these
+    // member fields
     private String email;
     private FacultyType type;
     private String office;

@@ -50,16 +50,26 @@ import enums.*;
  * <li><strong>email:</strong> busterbluth@seattleu.edu</li>
  * </ul>
  *
- * @author
+ * @author Mark Chesney
  */
 public class Student extends Person {
 
     /**
-     *
+     * Constructor for creating a new student
      * @param firstName   The first name of the student
      * @param lastName    The last name of the student
-     *
-     *
+     * @param suid        unique Seattle University identification number
+     * @param type        The type of student (see StudentType enum)
+     * @param program     The
+     * @param quarter     The
+     * @param year        The
+
+// TODO: generate this in RegistrationSystem, then pass it in
+//         this.email = firstName.toLowerCase() + lastName.toLowerCase() +
+            "@seattleu.edu";
+
+     * @param email       The school (i.e. SU) email address
+
      */
     public Student(String firstName, String lastName, int suid,
                     StudentType type, StudentProgram program,
@@ -83,6 +93,13 @@ public class Student extends Person {
         ", Type=" + type +
         ", Program=" + program +
         ", Term=" + quarter + " " + year + "\r";
+    }
+
+    /**
+     * Set student's program, see StudentProgram enum
+     */
+    public void setProgram(StudentProgram pgrm) {
+        this.program = pgrm;
     }
 
     private String email;

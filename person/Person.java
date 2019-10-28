@@ -12,27 +12,19 @@ import enums.*;
  * <li><strong>status:</strong> the status of the faculty (see PersonStatus enum)</li>
  * <li><strong>email:</strong> the school (i.e. SU) email address</li>
  * </ul>
- * <p>For example, <strong>Sheila Oh</strong></p>
- * <ul>
- * <li><strong>first name:</strong> Sheila</li>
- * <li><strong>last name:</strong> Oh</li>
- * <li><strong>suid:</strong> 100013</li>
- * <li><strong>status:</strong> ACTIVE</li>
- * <li><strong>email:</strong> ohsh@seattleu.edu</li>
- * </ul>
  *
  * @author Mark Chesney
  */
 public class Person {
 
     /**
-     *
+     * Constructor for creating a new person and generating a unique ID number
      * @param firstName   The first name
      * @param lastName    The last name
+     * @param suid        unique Seattle University identification number
      */
     public Person(String firstName, String lastName, int suid) {
 
-        // TODO: implement Person constructor
         this.firstName = firstName;
         this.lastName = lastName;
         this.suid = suid;
@@ -41,7 +33,7 @@ public class Person {
     }
 
     /**
-     *
+     * Constructor for creating a new person
      * @param firstName   The first name
      * @param lastName    The last name
      */
@@ -51,69 +43,55 @@ public class Person {
     }
 
     /**
-     *
-     * @param status
+     * Set the status of the person
+     * (e.g., to deactivate at a later time)
+     * @param status    status of the person (ACTIVE, INACTIVE)
      */
     public void setStatus(PersonStatus status) {
         this.status = status;
     }
 
     /**
-	 * @return the firstName
+     * Get the first name
+	 * @return     the first name
 	 */
 	public String getFirstName() {
 		return firstName;
 	}
 
 	/**
-	 * @param firstName the firstName to set
-	 */
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	/**
-	 * @return the lastName
+    * Get the last name
+	 * @return     the last name
 	 */
 	public String getLastName() {
 		return lastName;
 	}
 
 	/**
-	 * @param lastName the lastName to set
-	 */
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	/**
-	 * @return the suid
+     * Get the SU ID
+	 * @return the SU ID
 	 */
 	public int getSuId() {
 		return suid;
 	}
 
 	/**
-	 * @param suid the suid to set
-	 */
-	public void setSuid(int suid) {
-		this.suid = suid;
-	}
-
-	/**
-	 * @return the status
+     * Get the person's status
+	 * @return     status of the person (ACTIVE, INACTIVE)
 	 */
 	public PersonStatus getStatus() {
 		return status;
 	}
 
     /**
+     * Get person's full name
 	 * @return the status
 	 */
     public String getFullName() {
         return firstName + " " + lastName;
     }
 
+    // member fields
     private String firstName;
 	private String lastName;
     private int suid;
