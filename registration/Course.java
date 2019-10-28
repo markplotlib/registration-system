@@ -77,6 +77,14 @@ public class Course {
     }
 
     /**
+     * Gets course number
+     * @return      course number
+     */
+    public int getCourseNum() {
+        return courseNum;
+    }
+
+    /**
      * Gets course name
      * @return  course name
      */
@@ -113,10 +121,15 @@ public class Course {
         StringBuilder sb = new StringBuilder();
         if (prerequisites != null) {
             for (int prereq = 0; prereq < prerequisites.size(); prereq++) {
-            	sb.append(prerequisites.get(prereq));
+            	sb.append(prerequisites.get(prereq).getPrereqFormat());
+                sb.append(", ");
             }
         }
         return sb.toString();
+    }
+
+    private String getPrereqFormat() {
+        return "Name=" + getCourseSubjectCodeNum();
     }
 
     private SubjectCode code;

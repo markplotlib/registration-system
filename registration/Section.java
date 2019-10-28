@@ -42,7 +42,6 @@ public class Section {
     public Section(Course course, int section, Faculty instructor, Quarter quarter,
                     int year, int cap, Building bldg, int room) {
 
-        // TODO: implement Section constructor
         this.courseSubjectCodeNum = course.getCourseSubjectCodeNum();
         this.section = section;
         this.courseName = course.getCourseName();

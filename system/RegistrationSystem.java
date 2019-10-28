@@ -140,23 +140,16 @@ public class RegistrationSystem {
 
 		Course course = new Course(code, num);
 
-        boolean courseFound;
+        boolean courseFound = false;
         for (int courseNum = 0; courseNum < courseList.size(); courseNum++) {
             Course c = courseList.get(courseNum);
             if (c.equals(course)) {
                 c.addPrereq(prereqCode, prereqNum);
+                courseFound = true;
             }
         }
-
-		// if (!courseList.contains(course)) {
-        //     throw new CourseNotFoundException();
-        // }
-        // else {
-        // 	for (int i = 0; i < courseList.size(); i++) {
-        //         if (courseList.get(i).equals(course))
-        //             courseList.get(i).addPrereq(prereqCode, prereqNum);
-        //     }
-        // }
+        if (!courseFound)
+            throw new CourseNotFoundException();
     }
 
     /**
