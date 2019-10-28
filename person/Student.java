@@ -63,13 +63,6 @@ public class Student extends Person {
      * @param program     assigned program (see StudentProgram enum)
      * @param quarter     The quarter a student starts (see Quarter enum)
      * @param year        The year a student starts (integer)
-
-// TODO: generate this in RegistrationSystem, then pass it in
-//         this.email = firstName.toLowerCase() + lastName.toLowerCase() +
-            "@seattleu.edu";
-
-     * @param email       The school (i.e. SU) email address
-
      */
     public Student(String firstName, String lastName, int suid,
                     StudentType type, StudentProgram program,
@@ -82,16 +75,14 @@ public class Student extends Person {
         this.program = program;
         this.startTerm = quarter + " " + year;
         this.studentYear = computeStudentYear(year);
-
-        
-        this.advisor = null;
     }
 
     /**
-     * Assign a faculty advisor to a student
+     * assigns a faculty advisor to student
+     * @param 	faculty advisor
      */
-    public void assignAdvisor(Faculty faculty) {
-        advisor = null;
+    public void assign(Faculty advisor) {
+        this.advisor = advisor;
     }
 
     @Override
@@ -104,6 +95,13 @@ public class Student extends Person {
         else
             undergradYear = "";
 
+        // advisor, if assigned
+        String advisorDisplay;
+        if (this.advisor == null)
+            advisorDisplay = "";
+        else
+            advisorDisplay = ", Advisor=" + advisor.getFullName();
+
         return "Student: Name=" + getFirstName() + " " + getLastName() +
         ", SUID=" + getSuId() +
         ", Email=" + email +
@@ -111,7 +109,7 @@ public class Student extends Person {
         ", Type=" + type +
         ", Program=" + program +
         ", Term=" + startTerm +
-        ", Advisor=" + advisor.getFullName() +
+        advisorDisplay +
         undergradYear + "\r";
     }
 

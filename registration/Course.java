@@ -1,6 +1,10 @@
 package registration;
 
 import enums.SubjectCode;
+import exception.CourseNotFoundException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>The <strong>Course</strong> class holds information about a course.</p>
@@ -35,11 +39,28 @@ public class Course {
      public Course(SubjectCode code, int courseNum, String name,
                      int creditNum) {
 
-        // TODO: implement Course constructor
     	this.code = code;
     	this.courseNum = courseNum;
     	this.name = name;
     	this.creditNum = creditNum;
+        this.prerequisites = new ArrayList<>();
+    }
+
+    /**
+     *
+     * @param code      The subject code of the course
+     * @param courseNum The course number of the course
+     */
+    public Course(SubjectCode code, int courseNum) {
+    	this.code = code;
+    	this.courseNum = courseNum;
+    }
+
+    public void addPrerequisite(SubjectCode prereqCode, int prereqNum)
+                                throws CourseNotFoundException {
+    	
+    	Course course = new Course(prereqCode, prereqNum);
+        prerequisites.add(course);
     }
 
     /**
@@ -58,24 +79,34 @@ public class Course {
         return name;
     }
 
-
     @Override
     public String toString() {
         return "Course: Name=" + getCourseSubjectCodeNum() +
         ": " + name +
         ", Credits=" + creditNum +
-// ", Prerequisites=[]" +
-        "\r";
+        ", Prerequisites=[" + getAllPrerequisites() + "]" + "\r";
+    }
+
+    /**
+     *
+     * @param other
+     * @return
+     */
+    public boolean equals(Course other) {
+    	return (this.courseNum == other.courseNum);
+    }
+
+    private String getAllPrerequisites() {
+        StringBuilder sb = new StringBuilder();
+        for (int prereq = 0; prereq < prerequisites.size(); prereq++) {
+        	sb.append(prerequisites.get(prereq));
+        }
+        return sb.toString();
     }
 
     private SubjectCode code;
     private int courseNum;
     private String name;
     private int creditNum;
-    // private List prerequisites;
-
-    // TODO: add Course fields
-    // - subject code (see SubjectCode)
-    // - a collection of prerequisite course(s)
-
+    private List<Course> prerequisites;
 }

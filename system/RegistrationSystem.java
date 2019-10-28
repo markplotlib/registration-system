@@ -8,6 +8,7 @@ import enums.Building;
 import enums.FacultyType;
 import enums.Quarter;
 import enums.StudentType;
+import enums.StudentYear;
 import enums.SubjectCode;
 import enums.StudentProgram;
 import exception.CourseNotFoundException;
@@ -36,7 +37,8 @@ public class RegistrationSystem {
      */
     public RegistrationSystem() {
 
-        // SU ID generator: always incrementing for person constructor
+        // SU ID generator: always incrementing a new SU ID
+        // for each newly constructed person
         suIdCounter = 100000;
 
         // initialize collections
@@ -45,11 +47,6 @@ public class RegistrationSystem {
         subjectMap = new HashMap<String, SubjectCode>();
         courseList = new ArrayList<Course>();
         sectionList = new ArrayList<Section>();
-
-        // TODO: implement WITHIN RegistrationSystem constructor:
-            // initialize courseList
-            // initialize sectionList
-
     }
 
 
@@ -71,6 +68,10 @@ public class RegistrationSystem {
 
         studentList.add(new Student(firstName, lastName, generateSuId(), type,
                                     program, quarter, year));
+
+        // match students to advisors
+        matchAdvisors(facultyList, studentList);
+
     }
 
     /**
@@ -139,7 +140,15 @@ public class RegistrationSystem {
                             throws CourseNotFoundException {
 
         // TODO: implement addPrerequisite method
-
+		Course course = new Course(code, num);
+		if (!courseList.contains(course))
+            throw new CourseNotFoundException();
+        else {
+        	for (int i = 0; i < courseList.size(); i++) {
+                if (courseList.get(i).equals(course))
+                    courseList.get(i).addPrerequisite(prereqCode, prereqNum);
+            }
+        }
     }
 
     /**
@@ -186,8 +195,10 @@ public class RegistrationSystem {
     }
 
     /**
-     * private helper function
-     * @return
+     * generates a screen display of list objects
+     * @param 	listName  name of list to be displayed
+     * @param 	list      list object
+     * @return   screen display of list objects
      */
     private String generateStringFromList(String listName, List<?> list) {
         StringBuilder sb = new StringBuilder();
@@ -203,8 +214,10 @@ public class RegistrationSystem {
     }
 
     /**
-     * private helper function
-     * @return
+     * generates a screen display of map objects
+     * @param 	mapName  name of map to be displayed
+     * @param 	map      map object
+     * @return   screen display of map objects
      */
     private String generateStringFromMap(String mapName, Map<?, ?> map) {
         StringBuilder sb = new StringBuilder();
@@ -230,6 +243,21 @@ public class RegistrationSystem {
         return suIdCounter;
     }
 
+    /**
+     * Arbitrarily match faculty advisors to all students
+     */
+    private void matchAdvisors(List<Faculty> facultyList,
+                              List<Student> studentList) {
+        Faculty advisor;
+        int facultyNum;
+        for (int student = 0; student < studentList.size(); student++) {
+            facultyNum = student % facultyList.size();
+            advisor = facultyList.get(facultyNum);
+            studentList.get(student).assign(advisor);
+        }
+    }
+
+    // Registration System collections
     private List<Faculty> facultyList;
     private List<Student> studentList;
     private Map<String, SubjectCode> subjectMap;
@@ -237,9 +265,5 @@ public class RegistrationSystem {
     private List<Section> sectionList;
     // SU ID generator
     private int suIdCounter;
-
-// TODO: add RegistrationSystem collections
-// Note -- there is no list for prerequisites - these should be included
-// as part of the course list
 
 }
